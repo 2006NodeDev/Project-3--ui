@@ -26,7 +26,7 @@ jobs:
       - slack/status:
           mentions: 'CHANNEL'
           success_message: 'The Project-3-UI code is ready for you to pull'
-          failure_message: 'You should probably tell Tanique that the code failed'
+          failure_message: 'You should probably tell Tanique that the Project-3-UI code failed'
 workflows:
     build-ui:
       jobs:
