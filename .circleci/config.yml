@@ -18,6 +18,11 @@ jobs:
           name: Build
           command: |
             npm run build
+      - run: 
+          working_directory: ~/project
+          name: Test
+          command: |
+            npm test
       - slack/status:
           mentions: 'CHANNEL'
           success_message: 'The Project-3-UI code is ready for you to pull'
