@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
         },
         menuButton: {
-            marginLeft: theme.spacing(80),
-            color: "#f26926"
+            color: "#f26926",
+            marginLeft: 'auto'
         },
         title: {
             color: "#f26926",
@@ -65,7 +65,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                     <Toolbar className={classes.bar}>
                     
                         <img className={classes.logo} src={('https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/logo.png')} alt = 'Revature Logo'/>
-                        <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                        <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
                             <MenuIcon />
                         </IconButton>
                         <Menu id="simple-menu"
