@@ -25,8 +25,8 @@ jobs:
             npm test
       - slack/status:
           mentions: 'CHANNEL'
-          success_message: 'The Project-3-UI code is ready for you to pull'
-          failure_message: 'You should probably tell Tanique that the Project-3-UI code failed'
+          success_message: 'The Project-3-UI code STAGING is ready for you to pull'
+          failure_message: 'You should probably tell Tanique that the Project-3-UI STAGING code failed'
 workflows:
     build-and-test:
       jobs:
