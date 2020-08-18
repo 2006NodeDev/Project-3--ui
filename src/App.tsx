@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { UpdatePasswordComponent } from './components/UpdatePasswordComponent/UpdatePasswordComponent';
-import { Auth0LoginComponent } from './components/Auth0LoginComponent/Auth0LoginComponent';
 import { UpdateRoleComponent } from './components/UpdateRoleComponent/UpdateRoleComponent';
+import { NavComponent } from './components/NavComponent/NavComponent';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <h1>Project is Running...</h1>
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/updateRole' component={UpdateRoleComponent}/>
-          <Auth0LoginComponent />
+          <NavComponent/>
         </Router>
       </Provider>
     </div>
