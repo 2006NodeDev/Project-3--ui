@@ -1,4 +1,4 @@
-import { caliberBaseClient} } from '../index'
+import { caliberBaseClient} from '../index'
 
 export const updatePasswordRemote = async (body:any) => {
     try {
