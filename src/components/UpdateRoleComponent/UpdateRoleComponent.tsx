@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { updateRoleActionMapper } from '../../action-mappers/updateRole-action-mapper';
 import React, { FunctionComponent, useState, SyntheticEvent } from 'react'
-import { createStyles, makeStyles, Theme, InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, InputLabel, Select, FormControl } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
