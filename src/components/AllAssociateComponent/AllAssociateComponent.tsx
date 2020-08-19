@@ -30,23 +30,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
-<<<<<<< HEAD
-    console.log("next line should show allAssoicate")
-    const classes = useStyles();
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    
-    let [allAssociate, changeAllAssociate] = useState<Associate[]>([])
-    
-    console.log(allAssociate)
-=======
 
     const classes = useStyles();
 
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     let [allAssociate, changeAllAssociate] = useState<Associate[]>([])
->>>>>>> f952d3f65bc495ccc232c77be1eba453b7c0d6f7
+
 
     useEffect(() => {
         const getAssociates = async () => {
