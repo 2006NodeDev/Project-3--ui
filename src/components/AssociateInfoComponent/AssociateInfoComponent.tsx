@@ -1,6 +1,6 @@
 import React from 'react'
 import { FunctionComponent } from "react";
-import { Button, makeStyles, Theme, createStyles, FormControl, InputLabel, Select } from '@material-ui/core';
+import { Button, makeStyles, Theme, createStyles, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -17,24 +17,41 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const AssociateInfoComponent:FunctionComponent<any> = (props) => {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [batchQuarter, setBatchQuarter] = React.useState('');
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAge(event.target.value as string);
+    setBatchQuarter(event.target.value as string);
   };
 
   return (
     <div>
 
-
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-label">Filter by Quarter</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={batchQuarter}
           onChange={handleChange}
         >
+          <MenuItem value={'2020Q2'}>2020 Q2</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2020Q1'}>2020 Q1</MenuItem>
+          <MenuItem value={'2019Q4'}>2019 Q4</MenuItem>
+          <MenuItem value={'2019Q3'}>2019 Q3</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2019Q2'}>2019 Q2</MenuItem>
+          <MenuItem value={'2019Q1'}>2019 Q1</MenuItem>
+          <MenuItem value={'2018Q4'}>2018 Q4</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2018Q3'}>2018 Q3</MenuItem>
+          <MenuItem value={'2018Q2'}>2018 Q2</MenuItem>
+          <MenuItem value={'2018Q1'}>2018 Q1</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2017Q4'}>2017 Q4</MenuItem>
+          <MenuItem value={'2017Q3'}>2017 Q3</MenuItem>
+          <MenuItem value={'2017Q2'}>2017 Q2</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2017Q1'}>2017 Q1</MenuItem>
+          <MenuItem value={'2016Q4'}>2016 Q4</MenuItem>
+          <MenuItem value={'2016Q3'}>2016 Q3</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'2016Q2'}>2016 Q2</MenuItem>
+          <MenuItem value={'2016Q1'}>2016 Q1</MenuItem>
         </Select>
       </FormControl>
     </div>
