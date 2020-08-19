@@ -1,4 +1,4 @@
-import { updatePasswordRemote } from "../remote/update-password-remote";
+import { updatePasswordRemote } from "../remote/Caliber-api/update-password-remote";
 
 export const updatePasswordTypes = {
     SUCCEFUL_UPDATE:'SUCCESSFULLY_UPDATED_PASSWORD',
