@@ -1,8 +1,8 @@
-import { client } from './index';
+import { caliberBaseClient} from '../index'
 
 export const updatePasswordRemote = async (body:any) => {
     try {
-        let response = await client.patch('/updatePassword', body);
+        let response = await caliberBaseClient.patch('/updatePassword', body);
         console.log(response);
         return response.data
     } catch (error) {
