@@ -1,9 +1,8 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
 import clsx from 'clsx';
-import { getCurrentBatches } from '../../remote/Caliber-api/getCurrentBatches';
+import { getCurrentBatches } from '../../remote/userService/getCurrentBatches';
 import { Batch } from '../../models/Batch';
-import { batch } from 'react-redux';
 import { BatchDisplayComponent } from '../BatchDisplayComponent/BatchDisplayComponent';
 
 
@@ -38,19 +37,19 @@ export const CurrentBatchesComponent:FunctionComponent = (props) => {
     let [currentBatch, changeCurrentBatch] = useState<Batch[]>([])
 
     useEffect(() => {
-        const getAssociates = async () => {
+        const getBatches = async () => {
             let response = await getCurrentBatches()
             console.log(response)
             changeCurrentBatch(response)
         }
 
         if (currentBatch.length === 0) {
-            getCurrentBatches()
+            getBatches()
         }
     })
 
     let BatchDisplays = currentBatch.map((batch) => {
-            return <BatchDisplayComponent key={'batch-key-' + batch.batchId} batch={batch} />
+            return <BatchDisplayComponent key={'batch-key-' + batch.batchId} batch={batch}/>
         })
         
         return (

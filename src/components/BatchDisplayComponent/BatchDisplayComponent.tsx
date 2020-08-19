@@ -40,40 +40,40 @@ export const BatchDisplayComponent: FunctionComponent<IBatchDisplayProps> = (pro
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={4}>
                 <Typography className={classes.typography} variant='h4'>
-                    email: {props.batch.batchId}
+                    batchId: {props.batch.batchId}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    salesforceId : {props.batch.name}
+                    name : {props.batch.name}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    firstName : {props.batch.startDate}
+                    startDate : {props.batch.startDate}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    lastName : {props.batch.endDate}
+                    endDate : {props.batch.endDate}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.skill}
+                    skill : {props.batch.skill}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.location}
+                    location : {props.batch.location}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.type}
+                    type : {props.batch.type}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.goodGrade}
+                    goodGrade : {props.batch.goodGrade}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.passingGrade}
+                    passingGrade : {props.batch.passingGrade}
+                </Typography>
+               {/* <Typography className={classes.typography} variant='h4'>
+                    employeeAssignments : {props.batch.employeeAssignments}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.employeeAssignments}
-                </Typography>
+                    associateAssignments : {props.batch.associateAssignments}
+                </Typography>*/}
                 <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.associateAssignments}
-                </Typography>
-                <Typography className={classes.typography} variant='h4'>
-                    flag : {props.batch.currentWeek}
+                    currentWeek : {props.batch.currentWeek}
                 </Typography>
             </Paper>
         </div >

@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from 'react';
 import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
 import { Associate } from '../../models/associate'
 import clsx from 'clsx';
-import { getAllAssociates } from '../../remote/Caliber-api/getAllAssociate';
+import { getAllAssociates } from '../../remote/userService/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent'
 
 const useStyles = makeStyles((theme) => ({

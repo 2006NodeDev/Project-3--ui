@@ -4,7 +4,7 @@ import axios from 'axios'
 //this is the caliber IP (?)
 let baseURL = 'http://localhost:2006'
 
-export const caliberBaseClient = axios.create({
+export const userServiceBaseClient = axios.create({
     baseURL,
     headers:{
         'Content-Type': 'application/json',
