@@ -38,3 +38,12 @@
 [0819/002328.741:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 >>>>>>> f952d3f65bc495ccc232c77be1eba453b7c0d6f7
 [0819/033223.699:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/033552.954:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/033746.059:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/034006.399:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/034223.700:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/034223.700:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/034550.833:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/034723.699:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/042652.079:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0819/043927.046:ERROR:crash_report_database_win.cc(428)] unexpected header

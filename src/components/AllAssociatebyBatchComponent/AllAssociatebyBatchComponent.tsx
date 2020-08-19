@@ -1,5 +1,5 @@
-import React from './node_modules/react'
-import { FunctionComponent } from "./node_modules/react";
+import React from 'react'
+import { FunctionComponent } from "react";
 
 export const AssociateInfoComponent:FunctionComponent = (props) => {
 return(
