@@ -6,12 +6,14 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(15), //15
     fontWeight: theme.typography.fontWeightRegular,
   },
 }));
