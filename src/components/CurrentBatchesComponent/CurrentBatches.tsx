@@ -50,7 +50,6 @@ export const CurrentBatchesComponent:FunctionComponent = (props) => {
     })
 
     let BatchDisplays = currentBatch.map((batch) => {
-        console.log("should display batch information")
             return <BatchDisplayComponent key={'batch-key-' + batch.batchId} batch={batch} />
         })
         

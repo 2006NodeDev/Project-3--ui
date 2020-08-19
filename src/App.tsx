@@ -18,7 +18,7 @@ function App() {
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
-          <Route path='/currentBatch' component={CurrentBatchesComponent}/>
+          <Route path='/currentBatches' component={CurrentBatchesComponent}/>
         </Router>
       </Provider>
     </div>
