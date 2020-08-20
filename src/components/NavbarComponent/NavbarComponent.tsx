@@ -9,6 +9,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from 'react-router-dom';
+import PersonIcon from '@material-ui/icons/Person';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         button: {
             backgroundColor: "white",
-            color: "#86449e"
+            color: "#86449e",
         },
         Link: {
             textDecoration: "none"
@@ -81,7 +82,9 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                             onClose={handleClose}>
                             {menuItems}
                         </Menu>
-                        <button><Link to='/login'>Log in</Link></button>
+                        <IconButton onClick={event => window.location.href='/login'}>
+                            <PersonIcon />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
             </nav>
