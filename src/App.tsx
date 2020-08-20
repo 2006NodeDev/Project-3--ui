@@ -8,6 +8,7 @@ import { UpdateRoleComponent } from './components/UpdateRoleComponent/UpdateRole
 import { Auth0Component } from './components/Auth0Component/Auth0Component';
 import { AssociateInfoComponent } from './components/AssociateInfoComponent/AssociateInfoComponent';
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
+import { NewUserComponent } from './components/Auth0SignUpComponent/Auth0SignupComponent';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/updateRole' component={UpdateRoleComponent}/>
           <Auth0Component/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
+          <Route path='/register' component={NewUserComponent}/>
         </Router>
       </Provider>
     </div>
