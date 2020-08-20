@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import { makeStyles, Container, Grid, Paper, Card, CardMedia } from '@material-ui/core';
+import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
 import { Associate } from '../../models/associate'
 import clsx from 'clsx';
 import { getAllAssociates } from '../../remote/user-service-api/getAllAssociate';
@@ -36,6 +36,7 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     let [allAssociate, changeAllAssociate] = useState<Associate[]>([])
+
 
     useEffect(() => {
         const getAssociates = async () => {

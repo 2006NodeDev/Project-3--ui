@@ -4,6 +4,7 @@ import { getBatchIdByTrainer } from '../../remote/user-service-api/getbatchIDbyT
 import { Batch } from '../../models/Batch'
 import { batch } from 'react-redux'
 import { AllAssociatesComponent } from '../AllAssociateComponent/AllAssociateComponent'
+import { CurrentBatchesComponent } from '../CurrentBatchesComponent/CurrentBatches'
 
 
 export const BatchbyTrainerEmailComponent:FunctionComponent <any> = (props) =>{
@@ -18,9 +19,9 @@ useEffect(()=>{
         changeBatchProfile(batchInfo)
     }
     //havent gotten user profile yet
-    if(!BatchProfile|| BatchProfile.batchId !== +trainerEmail){
+    //if(!BatchProfile|| BatchProfile.batchId !== +trainerEmail){
         getBatch()
-    }
+    
 })
 
 return (

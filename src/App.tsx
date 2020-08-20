@@ -8,6 +8,7 @@ import { AssociateInfoComponent } from './components/AssociateInfoComponent/Asso
 import { AllAssociatesComponent } from './components/AllAssociateComponent/AllAssociateComponent'
 import { BatchbyTrainerEmailComponent } from  './components/BatchbyTrainerComponent/BatchbyTrainerEmailComponent';
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
+import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
-          <Route path='/allBatch/{trainerEmail}' component={BatchbyTrainerEmailComponent}/>
+          <Route path='/currentBatches' component={CurrentBatchesComponent}/>
+          <Route path='/batchInfo/:trainerEmail' component={BatchbyTrainerEmailComponent} />
 
         </Router>
       </Provider>
