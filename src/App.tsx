@@ -9,6 +9,7 @@ import { AllAssociatesComponent } from './components/AllAssociateComponent/AllAs
 import { BatchbyTrainerEmailComponent } from  './components/BatchbyTrainerComponent/BatchbyTrainerEmailComponent';
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
 import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
+import { HomePageComponent } from './components/HomePageComponent/HomePageComponent';
 
 function App() {
   return (
