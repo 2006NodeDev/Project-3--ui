@@ -5,6 +5,7 @@ import { Batch } from '../../models/Batch'
 import { batch } from 'react-redux'
 import { AllAssociatesComponent } from '../AllAssociateComponent/AllAssociateComponent'
 import { CurrentBatchesComponent } from '../CurrentBatchesComponent/CurrentBatches'
+import { Employee } from '../../models/Employee'
 
 
 export const BatchbyTrainerEmailComponent:FunctionComponent <any> = (props) =>{
@@ -15,20 +16,23 @@ let {trainerEmail} = useParams()
 useEffect(()=>{
     let getBatch = async()=>{
         //await user userinfo and than call state 
+        //console.log("email error");
         let batchInfo = await getBatchIdByTrainer(trainerEmail)
         changeBatchProfile(batchInfo)
     }
     //havent gotten user profile yet
-    //if(!BatchProfile|| BatchProfile.batchId !== +trainerEmail){
+    if(trainerEmail !== trainerEmail){
         getBatch()
-    
+    }
 })
 
 return (
 
 (BatchProfile)?
 //add all batch component instead later
-<AllAssociatesComponent batch={BatchProfile} />
+//<CurrentBatchesComponent batch={BatchProfile} />
+<CurrentBatchesComponent/>
+
 :
 <div>
 <h1>User Not Found</h1>

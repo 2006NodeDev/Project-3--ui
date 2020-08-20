@@ -20,7 +20,7 @@ function App() {
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
-          <Route path='/batchInfo/:trainerEmail' component={BatchbyTrainerEmailComponent} />
+          <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
 
         </Router>
       </Provider>
