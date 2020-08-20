@@ -9,9 +9,9 @@ export const signUptypes = {
 }
 
 
-export const signUpActionMapper = (email:string, password:string, user_metadata:any) => async (dispatch:any) =>{
+export const signUpActionMapper = (email:string, password:string, user_metadata:any, connection: string) => async (dispatch:any) =>{
     try {
-        let body = { email, password, user_metadata};
+        let body = { email, password, user_metadata, connection};
         let response = 'Sign Up Successful';
         await submitSignUpRemote(body);
         dispatch({

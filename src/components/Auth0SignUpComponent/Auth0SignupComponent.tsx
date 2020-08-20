@@ -5,6 +5,7 @@ import React from "react"
 import { TextField, Button } from "@material-ui/core"
 import { submitSignUpRemote } from "../../remote/new-user-signup-remote"
 import { useDispatch } from "react-redux"
+import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
 
 
 
@@ -41,13 +42,14 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
         e.preventDefault()
         changeConfirmPassword(e.currentTarget.value)
     }
+    /*
     const updateConnection = (e:any) => {
         e.preventDefault()
         changeConnection(e.currentTarget.value)
     }
-    
+    */
     let dispatch = useDispatch();
-    
+
     
     const submitUser = async (e: SyntheticEvent) => {
         e.preventDefault()
@@ -57,11 +59,17 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let newUser:User ={
                 email,
                 password,
-                user_metadata:{preferredName, lastName}
+                user_metadata:{preferredName, lastName},
+                connection: "Username-Password-Authentication",
             }
             let res = await submitSignUpRemote(newUser)
-        }
+            console.log(res)
+            let thunk = signUpActionMapper(email, password, {user_metadata:{preferredName, lastName}}, connection);
+            dispatch(thunk);
+        } 
+        
     }
+
 
     return (
         <div>
@@ -76,8 +84,6 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
                 <TextField id="standard-basic" type='password' label="Password" value={password} onChange={updatePassword}/>
                 <br/>
                 <TextField id="standard-basic" type='password' label="Confirm" value={confirmPassword} onChange={updateConfirmPassword}/>
-                <br/>
-                <TextField id="standard-basic" label="Connection" value={connection} onChange={updateConnection}/>
                 <br/>
                 <Button variant="contained" type='submit'>Submit</Button>
                 
