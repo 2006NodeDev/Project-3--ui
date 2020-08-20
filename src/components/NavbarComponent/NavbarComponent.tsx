@@ -60,6 +60,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
     menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
     menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
     menuItems.push(<MenuItem key={'register'} onClick={handleClose}><Link to='/register'> Sign Up! </Link></MenuItem>)
+    menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
     return (
             <nav>
                 <AppBar position="static">
