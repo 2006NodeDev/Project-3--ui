@@ -15,8 +15,4 @@ export interface Batch {
     employeeAssignments:EmployeeAssignment[]
     associateAssignments:AssociateAssignment[]
     currentWeek: number
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> df6f3ecb40710f7e8022424dfdbef55fc9de5813
