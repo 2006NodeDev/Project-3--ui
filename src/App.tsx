@@ -15,12 +15,17 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <Router>
+
         <NavBarComponent user={null}/>
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
+
+          <Route path='/home'>
+          <HomePageComponent/>
+        </Route>
 
         </Router>
       </Provider>
