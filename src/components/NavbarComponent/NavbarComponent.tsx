@@ -77,6 +77,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                             onClose={handleClose}>
                             {menuItems}
                         </Menu>
+                        <button><Link to='/login'>Log in</Link></button>
                     </Toolbar>
                 </AppBar>
             </nav>
