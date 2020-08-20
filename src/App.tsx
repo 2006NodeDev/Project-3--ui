@@ -7,6 +7,7 @@ import { UpdatePasswordComponent } from './components/UpdatePasswordComponent/Up
 import { AssociateInfoComponent } from './components/AssociateInfoComponent/AssociateInfoComponent';
 import { AllAssociatesComponent } from './components/AllAssociateComponent/AllAssociateComponent'
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
+import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
+          <Route path='/currentBatches' component={CurrentBatchesComponent}/>
         </Router>
       </Provider>
     </div>
