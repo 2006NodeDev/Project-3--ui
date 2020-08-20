@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { updatePasswordReducer } from "./update-password-reducer";
 import { updateRoleReducer } from "./update-role-reducer";
+import { User } from "@auth0/auth0-react/dist/auth-state";
 
 export interface IUpdatePasswordState{
     Response:string,
@@ -9,6 +10,11 @@ export interface IUpdatePasswordState{
 
 export interface IUpdateRoleState{
     Response:string,
+    errorMessage:string
+}
+
+export interface ILoginState{
+    currentUser?:User,
     errorMessage:string
 }
 
