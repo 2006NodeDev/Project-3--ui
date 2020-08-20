@@ -9,6 +9,7 @@ import { AssociateInfoComponent } from './components/AssociateInfoComponent/Asso
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
 import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { User } from '@auth0/auth0-react/dist/auth-state';
+import { NewUserComponent } from './components/Auth0SignUpComponent/Auth0SignupComponent';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/updateRole' component={UpdateRoleComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
+          <Route path='/register' component={NewUserComponent}/>
         </Router>
       </Provider>
     </div>

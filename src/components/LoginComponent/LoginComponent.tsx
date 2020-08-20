@@ -4,11 +4,8 @@ import { toast } from 'react-toastify';
 import { loginActionMapper } from '../../action-mappers/login-action-mapper';
 import { useDispatch } from 'react-redux';
 
-interface ILoginProps extends RouteComponentProps {
-    changeCurrentUser: (newUser:any) => void
-}
 
-export const LoginComponent:FunctionComponent<ILoginProps> = (props) => {
+export const LoginComponent:FunctionComponent<any> = (props) => {
     const [username, changeUsername] = useState('')
     const [password, changePassword] = useState('')
 
