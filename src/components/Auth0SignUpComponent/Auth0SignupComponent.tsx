@@ -47,7 +47,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
     }
     
     let dispatch = useDispatch();
-
+    
     
     const submitUser = async (e: SyntheticEvent) => {
         e.preventDefault()
@@ -57,7 +57,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let newUser:User ={
                 email,
                 password,
-                
+                user_metadata:{preferredName, lastName}
             }
             let res = await submitSignUpRemote(newUser)
         }
