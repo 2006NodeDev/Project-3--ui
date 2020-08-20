@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+//import Typography from '@material-ui/core/Typography';
+//import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -61,6 +61,10 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
     menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
     menuItems.push(<MenuItem key={'register'} onClick={handleClose}><Link to='/register'> Sign Up! </Link></MenuItem>)
     menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Associate Information</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'allAssociate'} onClick={handleClose}><Link to='/allAssociate'>All Associates</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'currentBatches'} onClick={handleClose}><Link to='/currentBatches'>Current Batches</Link></MenuItem>)
+
     return (
             <nav>
                 <AppBar position="static">
