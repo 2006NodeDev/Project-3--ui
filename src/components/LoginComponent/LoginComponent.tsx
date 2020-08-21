@@ -111,6 +111,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                                     fullWidth
                                     required
                                     id="password"
+                                    type="password"
                                     label="Password"
                                     name="password"
                                     value={password}
