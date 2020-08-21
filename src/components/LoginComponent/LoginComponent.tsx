@@ -124,15 +124,10 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                             >
                                 Login
                         </Button>
-                            <br /><br />
+                            <br /><br /><br />
                             <Grid>
                                 <Link href="/register" variant="body2" underline="none" className={classes.links}>
                                     {"Don't have an account? Sign up here!"}
-                                </Link>
-                            </Grid>
-                            <Grid>
-                                <Link href="/updatePassword" variant="body2" underline="none" className={classes.links}>
-                                    {"Forgot password"}
                                 </Link>
                             </Grid>
                         </form>
