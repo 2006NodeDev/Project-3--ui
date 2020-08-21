@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateRoleActionMapper } from '../../action-mappers/updateRole-action-mapper';
 import React, { FunctionComponent, useState, SyntheticEvent } from 'react'
 import { createStyles, makeStyles, Theme, InputLabel, Select, FormControl } from '@material-ui/core';
+import { IState } from '../../reducers';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,18 +27,23 @@ export const UpdateRoleComponent:FunctionComponent<any> = (props) => {
         
     }
 
+    let currentUser = useSelector((state:IState)=>{
+        return state.loginState.currentUser
+    })
+    
     let dispatch = useDispatch();
 
     const submitRole = async (e: SyntheticEvent) => {
         e.preventDefault();
         try {
-            let thunk = await updateRoleActionMapper(1, role); // Replace 1 with userID selected by Admin
+            let thunk = await updateRoleActionMapper(currentUser.userId, 'auth0|5f358d7fa1b41f0067816993', role); // Replace 1 with userID selected by Admin
             dispatch(thunk);
         } catch (error) {
             console.log(error);
         }
     }
     return (
+
         <div>
             <FormControl className={classes.formControl}>
                 <InputLabel htmlFor="age-native-simple">Role</InputLabel>
