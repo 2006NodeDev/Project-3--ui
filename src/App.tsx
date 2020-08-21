@@ -12,6 +12,7 @@ import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { User } from '@auth0/auth0-react/dist/auth-state';
 import { NewUserComponent } from './components/Auth0SignUpComponent/Auth0SignupComponent';
 import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
+import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/register' component={NewUserComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
+          <Route path='/getRole' component={GetRoleComponent}/>
         </Router>
       </Provider>
     </div>
