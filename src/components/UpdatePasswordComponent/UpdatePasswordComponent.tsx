@@ -39,10 +39,13 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
     }
 
     return (
+        (currentUser)?
         <div>
             <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
             <input type="password" name="password2" placeholder="new password" value={password2} onChange={updatePassword2}></input>
             <button className="btn " type="submit" onClick={submitPassword}> Submit </button>
         </div>
+        :
+        <div> Loading... </div>
     )
 }
