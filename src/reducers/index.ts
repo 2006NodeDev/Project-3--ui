@@ -3,6 +3,7 @@ import { updatePasswordReducer } from "./update-password-reducer";
 import { updateRoleReducer } from "./update-role-reducer";
 import { User } from "@auth0/auth0-react/dist/auth-state";
 import { signUpRegisterReducer } from "./newUser-signUp-reducer";
+import { loginReducer } from "./login-reducer";
 
 export interface IUpdatePasswordState{
     Response:string,
@@ -28,10 +29,12 @@ export interface IState{
     updatePasswordState:IUpdatePasswordState,
     updateRoleState:IUpdateRoleState,
     signupState: ISignUp,
+    loginState: ILoginState,
 }
 
 export const state = combineReducers<IState>({
     updatePasswordState:updatePasswordReducer,
     updateRoleState:updateRoleReducer,
     signupState: signUpRegisterReducer,
+    loginState: loginReducer,
 })

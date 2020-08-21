@@ -10,8 +10,7 @@ export const loginTypes = {
 export const loginActionMapper = (username:string, password:string) => async (dispatch:any) => {
     try  {
         let body = { username, password };
-        let response = 'Login Successful';
-        await loginRemote(body);
+        let response = await loginRemote(body);
         dispatch({
             type: loginTypes.SUCCESSFUL_LOGIN,
             payload: {
