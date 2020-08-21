@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { updatePasswordReducer } from "./update-password-reducer";
 import { updateRoleReducer } from "./update-role-reducer";
-import { User } from "@auth0/auth0-react/dist/auth-state";
+import { User } from "../models/User";
 import { signUpRegisterReducer } from "./newUser-signUp-reducer";
+import { Role } from "../models/Role"
 import { loginReducer } from "./login-reducer";
+import { getRoleReducer } from "./get-role-reducer";
 
 export interface IUpdatePasswordState{
     Response:string,
@@ -12,6 +14,11 @@ export interface IUpdatePasswordState{
 
 export interface IUpdateRoleState{
     Response:string,
+    errorMessage:string
+}
+
+export interface IGetRoleState{
+    currentRole?:Role,
     errorMessage:string
 }
 
@@ -30,6 +37,7 @@ export interface IState{
     updateRoleState:IUpdateRoleState,
     signupState: ISignUp,
     loginState: ILoginState,
+    getRoleState: IGetRoleState,
 }
 
 export const state = combineReducers<IState>({
@@ -37,4 +45,5 @@ export const state = combineReducers<IState>({
     updateRoleState:updateRoleReducer,
     signupState: signUpRegisterReducer,
     loginState: loginReducer,
+    getRoleState: getRoleReducer,
 })

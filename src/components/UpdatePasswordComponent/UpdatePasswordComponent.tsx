@@ -39,13 +39,6 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
     }
 
     return (
-        (currentUser)?
-            <div>
-                `${currentUser.userId}`
-                `${currentUser.role}`
-                `${currentUser.email}`
-            </div>
-        :
         <div>
             <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
             <input type="password" name="password2" placeholder="new password" value={password2} onChange={updatePassword2}></input>

@@ -5,7 +5,4 @@ export interface User {
     lastName: string
     username: string
     picture:string
-    role: string
-    roleId: string
-    roleDescription:string
 }
