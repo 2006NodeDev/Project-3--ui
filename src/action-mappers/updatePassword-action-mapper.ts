@@ -1,5 +1,5 @@
 
-import { updatePasswordRemote } from "../remote/user-service-api/update-password-remote";
+import { updatePasswordRemote } from "../remote/userService/update-password-remote";
 
 
 export const updatePasswordTypes = {
