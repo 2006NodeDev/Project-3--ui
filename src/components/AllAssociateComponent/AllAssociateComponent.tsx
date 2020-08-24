@@ -2,9 +2,9 @@ import React, { FunctionComponent, useState, useEffect, SyntheticEvent } from 'r
 import { makeStyles, Container, Grid, Paper, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
 import { Associate } from '../../models/associate';
 import clsx from 'clsx';
-import { getAllAssociates } from '../../remote/user-service-api/getAllAssociate';
+import { getAllAssociates } from '../../remote/userService/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent';
-import { retrieveFilteredResults } from '../../remote/user-service-api/retrieveFilteredResults';
+import { retrieveFilteredResults } from '../../remote/userService/retrieveFilteredResults';
 
 
 const useStyles = makeStyles((theme) => ({
