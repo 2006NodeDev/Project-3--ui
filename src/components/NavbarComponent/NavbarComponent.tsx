@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import PersonIcon from '@material-ui/icons/Person';
 import { useSelector } from 'react-redux';
 import { IState } from '../../reducers';
+import { withStyles } from '@material-ui/styles';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -29,12 +30,12 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             fontFamily: "Impact"
         },
-        button: {
-            backgroundColor: "white",
-            color: "#86449e",
-        },
-        Link: {
-            textDecoration: "none"
+        link: {
+            color:'#474C55', 
+            textDecoration: "none",
+            '&:hover': {
+                color: '#FFFFFF',
+            },
         },
         bar: {
             backgroundColor: "white",
@@ -45,6 +46,14 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     }),
 );
+
+const StyledMenuItem = withStyles((theme) => ({
+    root: {
+      '&:hover': {
+        backgroundColor: '#F26925',
+      },
+    },
+  }))(MenuItem);
 
 export const NavBarComponent: FunctionComponent<any> = (props) => {
     const classes = useStyles();
@@ -62,18 +71,41 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
         return state.loginState.currentUser
     })
 
+
+
+    menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'home'} onClick={handleClose}><Link to='/home'>Quick Links</Link></MenuItem>)
+
     let menuItems = []
-    menuItems.push(<MenuItem key={'register'} onClick={handleClose}><Link to='/register'> Sign Up! </Link></MenuItem>)
+    menuItems.push(<Link to='/register' className={classes.link}><StyledMenuItem key={'register'} onClick={handleClose}> Sign Up! </StyledMenuItem></Link>)
     if(currentUser){
+
     menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
     menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
     menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
+
     menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Associate Information</Link></MenuItem>)
     menuItems.push(<MenuItem key={'allAssociate'} onClick={handleClose}><Link to='/allAssociate'>All Associates</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'batchInfo'} onClick={handleClose}><Link to='/batchInfo'>Batch Profile</Link></MenuItem>)
     menuItems.push(<MenuItem key={'currentBatches'} onClick={handleClose}><Link to='/currentBatches'>Current Batches</Link></MenuItem>)
+
+    menuItems.push(<MenuItem key={'allProfile'} onClick={handleClose}><Link to='/allProfile'>Profile Service</Link></MenuItem>)
+
+        return (
+
     menuItems.push(<MenuItem key={'logout'} onClick={handleClose}><Link to='/logout'>Logout</Link></MenuItem>)
+menuItems.push(
+        <Link to='updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password</StyledMenuItem></Link>,
+        <Link to='/associateInfo'  className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Info about associates</StyledMenuItem></Link>,
+        <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
+        <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
+        <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
+        <Link to='/currentBatches' className={classes.link}><StyledMenuItem key={'currentBatches'} onClick={handleClose}>Current Batches</StyledMenuItem></Link>,
+        <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>)
+
     }
     return (
+
             <nav>
                 <AppBar position="static">
                     <Toolbar className={classes.bar}>

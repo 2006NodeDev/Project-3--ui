@@ -1,4 +1,4 @@
-import { updateRoleRemote } from "../remote/update-role-remote";
+import { updateRoleRemote } from "../remote/user-service/updateRole";
 
 export const updateRoleTypes = {
     SUCCEFUL_UPDATE:'SUCCESSFULLY_UPDATED_ROLE',
