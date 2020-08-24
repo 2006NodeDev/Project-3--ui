@@ -3,7 +3,15 @@ import { RouteComponentProps } from 'react-router';
 import { toast } from 'react-toastify';
 import { loginActionMapper } from '../../action-mappers/login-action-mapper';
 import { useDispatch } from 'react-redux';
+import AppIcon from '../public/revaturelogo.jpg'
 
+//MUI
+import withStyles from '@material-ui/core/styles/withStyles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 export const LoginComponent:FunctionComponent<any> = (props) => {
     const [username, changeUsername] = useState('')
@@ -42,9 +50,10 @@ export const LoginComponent:FunctionComponent<any> = (props) => {
 
     return(
         <div>
-            <input name="username" placeholder="username" value={username} onChange={updateUsername}></input>
+            
+        <input name="username" placeholder="username" value={username} onChange={updateUsername}></input>
             <input type="password" name="password" placeholder="password" value={password} onChange={updatePassword}></input>
-            <button className="btn " type="submit" onClick={loginSubmit}> Submit </button>
+            <button className="btn " type="submit" onClick={loginSubmit}> Submit </button> 
         </div>
     )
 }
