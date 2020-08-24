@@ -1,9 +1,9 @@
-import { userServiceBaseClient } from './index';
+import { userServiceBaseClient } from '../index';
 
 export const updateRoleRemote = async (body:any) =>{
     try{
         console.log(body)
-        let response = await userServiceBaseClient.patch(`/updateRole`, body)
+        let response = await userServiceBaseClient.patch(`/user-service/updateRole`, body)
         console.log(response)
         return response.data
     } catch (error) {

@@ -1,4 +1,4 @@
-import { loginRemote } from "../remote/login";
+import { loginRemote } from "../remote/user-service/login";
 import { toast } from "react-toastify";
 
 export const loginTypes = {
