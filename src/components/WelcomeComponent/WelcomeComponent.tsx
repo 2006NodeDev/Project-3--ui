@@ -1,12 +1,21 @@
-import React from 'react'
-import { FunctionComponent } from "react";
-import { Button } from '@material-ui/core';
-import classes from '*.module.css';
+import React from 'react';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 
-export const WelcomeComponent:FunctionComponent = (props) => {
-return(
-    <div> <h1> {"Welcome to Revature"}</h1></div>
 
-)
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+
+
+
+export default function WelcomeComponent() {
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <Typography variant="h1">Welcome to Revature!</Typography>
+      </ThemeProvider> 
+    </div>
+  );
 }

@@ -54,6 +54,7 @@ export const AssociateDisplayComponent: FunctionComponent<IAssociateDisplayProps
                 <Typography className={classes.typography} variant='h4'>
                     flag : {props.associate.flag}
                 </Typography>
+
             </Paper>
         </div >
     )

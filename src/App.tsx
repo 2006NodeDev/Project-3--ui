@@ -10,7 +10,9 @@ import { BatchbyTrainerEmailComponent } from  './components/BatchbyTrainerCompon
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
 import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
 import HomePageComponent from './components/HomePageComponent/HomePageComponent';
-import { WelcomeComponent } from './components/WelcomeComponent/WelcomeComponent'
+import WelcomeComponent from './components/WelcomeComponent/WelcomeComponent'
+import { AllProfileComponent } from './components/AllProfileComponent/AllProfileComponent'
+import MenubarComponent from './components/MenuBarComponent/MenubarComponent'
 
 function App() {
   return (
@@ -20,13 +22,17 @@ function App() {
 
         <Redirect to='/home' />
 
+        
+
         <NavBarComponent user={null}/>
+
           <Route path='/updatePassword' component={UpdatePasswordComponent}/>
           <Route path='/associateInfo' component={AssociateInfoComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
-           
+          <Route path='/allProfile' component={AllProfileComponent}/>
+
          
 
           <Route path='/home'>

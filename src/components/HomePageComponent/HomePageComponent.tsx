@@ -20,7 +20,14 @@ const useStyles = makeStyles((theme: Theme) =>
       textSize: "25",
       backgroundColor: "#F26926"
 
-    }
+    },
+
+    typography: {
+        color: 'black',
+        padding: theme.spacing(1),
+        fontFamily: 'monospace',
+        fontSize: 18
+    },
   })
 );
 
@@ -69,7 +76,7 @@ export default function NestedGrid() {
             </Grid>
     
             <Grid item xs={6}>
-             <Paper className={classes.paper}><a href="https://css-tricks.com">Update Direct Deposits</a></Paper>
+             <Paper className={classes.paper}><a href="https://rev2.force.com/revature/s/login/?ec=302&startURL=%2Frevature%2Fs%2F">Timesheets Login</a></Paper>
   
   
             </Grid>
@@ -81,7 +88,7 @@ export default function NestedGrid() {
             return (
               <React.Fragment>
                 <Grid item xs={6}>
-                  <Paper className={classes.paper}><a href="https://git.com">Git Hub</a></Paper>
+                  <Paper className={classes.paper}><a href="https://github.com/">Git Hub</a></Paper>
                 </Grid>
         
                 <Grid item xs={6}>
@@ -115,11 +122,11 @@ export default function NestedGrid() {
                     return (
                       <React.Fragment>
                         <Grid item xs={6}>
-                          <Paper className={classes.paper}>Benefits</Paper>
+                          <Paper className={classes.paper}><a href="https://sites.google.com/a/revature.com/portal/benefits">Benefits</a></Paper>
                         </Grid>
                 
                         <Grid item xs={6}>
-                         <Paper className={classes.paper}><a href="https://css-tricks.com">Ask a Question!</a></Paper>
+                         <Paper className={classes.paper}><a href="https://rev2.force.com/revature/s/login/?ec=302&startURL=%2Frevature%2Fs%2F">Setup Your Employee Portal</a></Paper>
               
               
                         </Grid>
