@@ -7,11 +7,15 @@ export const loginTypes = {
     BAD_REQUEST:'BAD_REQUEST',
     USER_NOT_FOUND: 'USER_NOT_FOUND',
     INTERNAL_SERVER:'LOGIN_INTERNAL_SERVER',
-    RESET_ERROR: 'RESET_ERROR'
+    RESET_ERROR: 'RESET_ERROR',
+    USER_LOGOUT: 'USER_LOGOUT'
 }
 
 export const loginActionMapper = (username:string, password:string) => async (dispatch:any) => {
     try  {
+        if (username === 'logout'){
+           throw Error('logout') 
+        }
         let body = { username, password };
         let response = await loginRemote(body);
         
@@ -19,9 +23,8 @@ export const loginActionMapper = (username:string, password:string) => async (di
             type: loginTypes.SUCCESSFUL_LOGIN,
             payload: {
                 response
-            },
-        })
-        
+            }
+       })
     } catch(error) {
         if(error.message.includes('400')){
             dispatch({
@@ -37,7 +40,11 @@ export const loginActionMapper = (username:string, password:string) => async (di
             dispatch({
                 type:loginTypes.USER_NOT_FOUND
             })
-        } else{
+        } else if (error.message === 'logout'){
+            dispatch({
+                type:loginTypes.USER_LOGOUT
+            }) 
+        }else{
             dispatch({
                 type: loginTypes.INTERNAL_SERVER
             })

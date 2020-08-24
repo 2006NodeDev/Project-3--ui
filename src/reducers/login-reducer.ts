@@ -1,4 +1,4 @@
-import { ILoginState } from ".";
+import { ILoginState } from "./index"
 import { AnyAction } from "redux";
 import { loginTypes } from "../action-mappers/login-action-mapper";
 
@@ -38,6 +38,11 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
                 ...state,
                 errorMessage:'Oops, Something Went Wrong'
             }
+        } case loginTypes.USER_LOGOUT:{
+            return {
+                ...state,
+                currentUser: undefined
+            }
         }
         case loginTypes.RESET_ERROR:{
             return {
@@ -45,6 +50,7 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
                 errorMessage:''
             }
         }
+
         default:{
             return state
         }
