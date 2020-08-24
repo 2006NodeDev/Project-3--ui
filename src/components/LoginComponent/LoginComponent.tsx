@@ -75,7 +75,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
             let thunk = await loginActionMapper(username, password)
             dispatch(thunk)
             changePassword('')
-            props.history.push('/')
+            props.history.push('/getRole')
         } catch (error) {
             console.log(error);
         }
@@ -111,7 +111,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                                     fullWidth
                                     required
                                     id="password"
-                                    
+                                    type="password"
                                     label="Password"
                                     name="password"
                                     value={password}
@@ -125,15 +125,10 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                             >
                                 Login
                         </Button>
-                            <br /><br />
+                            <br /><br /><br />
                             <Grid>
                                 <Link href="/register" variant="body2" underline="none" className={classes.links}>
                                     {"Don't have an account? Sign up here!"}
-                                </Link>
-                            </Grid>
-                            <Grid>
-                                <Link href="/updatePassword" variant="body2" underline="none" className={classes.links}>
-                                    {"Forgot password"}
                                 </Link>
                             </Grid>
                         </form>
