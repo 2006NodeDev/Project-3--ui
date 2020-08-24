@@ -4,13 +4,9 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { UpdatePasswordComponent } from './components/UpdatePasswordComponent/UpdatePasswordComponent'
-<<<<<<< HEAD
-import { AssociateInfoComponent } from './components/AssociateInfoComponent/AssociateInfoComponent';
-=======
 import { UpdateRoleComponent } from './components/UpdateRoleComponent/UpdateRoleComponent';
 import { AllAssociatesComponent } from './components/AllAssociateComponent/AllAssociateComponent'
 import { BatchbyTrainerEmailComponent } from './components/BatchbyTrainerComponent/BatchbyTrainerEmailComponent';
->>>>>>> 47566f2fca15030d921bdf72be687e607322d7c3
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
 import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { User } from '@auth0/auth0-react/dist/auth-state';
