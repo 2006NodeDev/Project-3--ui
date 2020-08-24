@@ -27,10 +27,22 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
                 errorMessage:'Incorrect Username or Password'
             }
         }
+        case loginTypes.USER_NOT_FOUND:{
+            return {
+                ...state,
+                errorMessage: 'User Not Found'
+            }
+        }
         case loginTypes.INTERNAL_SERVER:{
             return {
                 ...state,
                 errorMessage:'Oops, Something Went Wrong'
+            }
+        }
+        case loginTypes.RESET_ERROR:{
+            return {
+                ...state,
+                errorMessage:''
             }
         }
         default:{

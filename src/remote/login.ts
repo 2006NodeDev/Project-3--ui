@@ -10,7 +10,6 @@ export const loginRemote = async (body:any) => {
 
         return response.data
     } catch(e){
-        console.log(e);
-        return('Something went wrong')
+        throw(e)
     }
 }
