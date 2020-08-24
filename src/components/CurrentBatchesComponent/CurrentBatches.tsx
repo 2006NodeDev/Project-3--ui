@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { makeStyles, Container, Grid, Paper } from '@material-ui/core';
 import clsx from 'clsx';
-import { getCurrentBatches } from '../../remote/userService/getCurrentBatches';
+import { getCurrentBatches } from '../../remote/user-service/getCurrentBatches';
 import { Batch } from '../../models/Batch';
 import { BatchDisplayComponent } from '../BatchDisplayComponent/BatchDisplayComponent';
 
