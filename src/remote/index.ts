@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { acBaseUrl } from '../environment'
 
-export const client = axios.create({
-    baseURL:acBaseUrl,
+//an optional env for host address or localhost default
+//this is the caliber IP (?)
+
+export const userServiceBaseClient = axios.create({
+    baseUrl: acBaseUrl,
     headers:{
-        'Content-Type': 'application/json',
+        'Content-Type':'application/json'
     },
 })

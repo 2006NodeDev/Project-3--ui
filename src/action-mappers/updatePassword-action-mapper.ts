@@ -1,4 +1,6 @@
-import { updatePasswordRemote } from "../remote/update-password-remote";
+
+import { updatePasswordRemote } from "../remote/user-service-api/update-password-remote";
+
 
 export const updatePasswordTypes = {
     SUCCEFUL_UPDATE:'SUCCESSFULLY_UPDATED_PASSWORD',
@@ -6,7 +8,7 @@ export const updatePasswordTypes = {
     UNAUTHORIZED: 'UPDATE_PASSWORD_UNAUTHORIZED'
 }
 
-export const updatePasswordActionMapper = (userId:number, password:string) => async (dispatch:any) =>{
+export const updatePasswordActionMapper = (userId:string, password:string) => async (dispatch:any) =>{
     try {
         let body = { userId, password };
         let response = 'Updated Password Successfully';
