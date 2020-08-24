@@ -1,6 +1,8 @@
 
 import { userServiceBaseClient } from '..'
 
+
+
 export const getBatchIdByTrainer = async (trainerEmail:string) => {
 
     //let { trainerEmail } = req.params;
