@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useState, SyntheticEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { updatePasswordActionMapper } from '../../action-mappers/updatePassword-action-mapper';
+import { IState } from '../../reducers';
 
 //MUI
 import {Grid, TextField, Button, InputAdornment, createMuiTheme, Theme} from '@material-ui/core'
@@ -38,9 +39,9 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
         changePassword2(e.currentTarget.value);
     }
 
-    // let currentUser = useSelector((state:IState)=>{
-    //     return state.loginState.currentUser
-    // })
+    let currentUser = useSelector((state:IState)=>{
+        return state.loginState.currentUser
+    })
 
     let dispatch = useDispatch();
 
@@ -50,7 +51,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
             if (password1 !== password2){
                 toast.error('Passwords Do Not Match')
             } else {
-                let thunk = await updatePasswordActionMapper(1, password1); // replace 1 with currentUser.userId
+                let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
                 dispatch(thunk);
             }
         } catch (error) {
@@ -59,6 +60,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
     }
 
     return (
+        (currentUser)?
         <div>
                 <Grid
                     container
@@ -122,6 +124,9 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
 
              {/* <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
             <input type="password" name="password2" placeholder="new password" value={password2} onChange={updatePassword2}></input>
-            <button className="btn " type="submit" onClick={submitPassword}> Submit </button> */}
-        
-
+            <button className="btn " type="submit" onClick={submitPassword}> Submit </button>
+        </div>
+        :
+        <div> Loading... </div>
+    )
+}
