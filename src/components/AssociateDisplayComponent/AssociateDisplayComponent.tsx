@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { makeStyles, Theme, createStyles, Paper, Typography } from '@material-ui/core';
-import { Associate } from '../../models/associate';
+import { Associate } from '../../models/Associate';
 
 
 

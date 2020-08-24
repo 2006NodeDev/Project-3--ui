@@ -1,4 +1,4 @@
-import { getRoleRemote } from "../remote/get-role-remote";
+import { getRoleRemote } from "../remote/user-service/getRole";
 
 export const getRoleTypes = {
     SUCCEFUL_UPDATE:'SUCCESSFULLY_GET_ROLE',
