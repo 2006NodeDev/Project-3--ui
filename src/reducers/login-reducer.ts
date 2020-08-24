@@ -1,4 +1,4 @@
-import { ILoginState } from ".";
+import { ILoginState } from "./index"
 import { AnyAction } from "redux";
 import { loginTypes } from "../action-mappers/login-action-mapper";
 
