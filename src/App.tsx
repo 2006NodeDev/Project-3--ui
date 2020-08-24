@@ -32,7 +32,6 @@ function App() {
           <Route path='/register' component={NewUserComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
-          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)}/>
           <Route path='/getRole' component={GetRoleComponent}/>
         </Router>
       </Provider>
