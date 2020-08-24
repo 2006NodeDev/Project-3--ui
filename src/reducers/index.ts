@@ -7,6 +7,7 @@ import { Role } from "../models/Role"
 import { loginReducer } from "./login-reducer";
 import { getRoleReducer } from "./get-role-reducer";
 
+
 export interface IUpdatePasswordState{
     Response:string,
     errorMessage:string
@@ -27,15 +28,16 @@ export interface ILoginState{
     errorMessage:string
 }
 
-export interface ISignUp{
+export interface ISignUpState{
     Response: string,
     errorMessage: string
 }
 
+
 export interface IState{
     updatePasswordState:IUpdatePasswordState,
     updateRoleState:IUpdateRoleState,
-    signupState: ISignUp,
+    signupState: ISignUpState,
     loginState: ILoginState,
     getRoleState: IGetRoleState,
 }
@@ -45,5 +47,5 @@ export const state = combineReducers<IState>({
     updateRoleState:updateRoleReducer,
     signupState: signUpRegisterReducer,
     loginState: loginReducer,
-    getRoleState: getRoleReducer,
+    getRoleState: getRoleReducer
 })

@@ -1,9 +1,9 @@
-import { ISignUp } from "."
 import { signUptypes } from "../action-mappers/signup-register-action-mapper"
 import { AnyAction } from "redux"
+import { ISignUpState } from "."
 
 
-const initialState:ISignUp = {
+const initialState:ISignUpState = {
     Response: '',
     errorMessage: ''
 }
