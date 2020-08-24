@@ -89,8 +89,14 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
     }
 
     let AssociateDisplays = allAssociate.map((associate) => {
-        return <AssociateDisplayComponent key={'associate-key-' + associate.salesforceId} associate={associate} />
+        return (
+            <div>
+                <AssociateDisplayComponent key={'associate-key-' + associate.salesforceId} associate={associate} {...props}/>
+                {/* <UpdateRoleComponent key={'associate-key-' + associate.salesforceId} associate={associate} {...props}/> */}
+            </div>    
+        )
     })
+
     
     return (
         <div>
