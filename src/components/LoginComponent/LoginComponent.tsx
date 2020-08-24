@@ -1,11 +1,12 @@
-import React, { FunctionComponent, useState, SyntheticEvent } from 'react';
-import { toast } from 'react-toastify';
-import { loginActionMapper } from '../../action-mappers/login-action-mapper';
-import { useDispatch } from 'react-redux';
+import React, { FunctionComponent, useState, SyntheticEvent, useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import { loginActionMapper, loginErrorReset } from '../../action-mappers/login-action-mapper';
+import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField, Button, Theme, Container, createMuiTheme } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
-import { makeStyles, createStyles, withStyles, ThemeProvider } from '@material-ui/styles';
+import { makeStyles, createStyles, ThemeProvider } from '@material-ui/styles';
 import { deepOrange } from '@material-ui/core/colors';
+import { IState } from '../../reducers';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -50,6 +51,12 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
     const [username, changeUsername] = useState('')
     const [password, changePassword] = useState('')
 
+    const errorMessage = useSelector((state:IState) => {
+        return state.loginState.errorMessage
+    })
+
+    const dispatch = useDispatch();
+
     const updateUsername = (event: any) => {
         event.preventDefault()
         changeUsername(event.currentTarget.value)
@@ -59,27 +66,29 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
         changePassword(event.currentTarget.value)
     }
 
-    let dispatch = useDispatch();
-
     const loginSubmit = async (event: SyntheticEvent) => {
         event.preventDefault()
-
-        if (!username || !password) {
-            toast.error('You have entered an incorrect username or password', {
-                position: toast.POSITION.BOTTOM_RIGHT,
-                className: 'foo-bar'
-            })
-        }
-
         try {
-            let thunk = await loginActionMapper(username, password)
-            dispatch(thunk)
-            changePassword('')
-            props.history.push('/getRole')
+            if (!username || !password) {
+                toast.error('You have entered an incorrect username or password')
+            } else {
+                let thunk = await loginActionMapper(username, password)
+                dispatch(thunk)
+
+            //     props.history.push('/getRole')
+            }
         } catch (error) {
+            props.history.push('/login')
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        if(errorMessage) {
+            toast.error(errorMessage)
+            dispatch(loginErrorReset()) //resets error message after toast
+        }
+    })
 
     return (
         <Container component="main" maxWidth="xs">
@@ -101,7 +110,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                                     id="username"
                                     label="Email"
                                     name="email"
-                                    defaultValue="@revature.net"
+                                    defaultValue="@mock.com"
                                     // value={username}
                                     onChange={updateUsername}
                                 />
