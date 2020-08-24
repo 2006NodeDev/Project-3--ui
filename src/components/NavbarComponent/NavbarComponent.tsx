@@ -9,6 +9,9 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from 'react-router-dom';
+import PersonIcon from '@material-ui/icons/Person';
+import { useSelector } from 'react-redux';
+import { IState } from '../../reducers';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         button: {
             backgroundColor: "white",
-            color: "#86449e"
+            color: "#86449e",
         },
         Link: {
             textDecoration: "none"
@@ -55,18 +58,35 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
         setAnchorEl(null);
     };
 
-    let menuItems = []
+    const currentUser = useSelector((state:IState)=>{
+        return state.loginState.currentUser
+    })
+
 
 
     menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
     menuItems.push(<MenuItem key={'home'} onClick={handleClose}><Link to='/home'>Quick Links</Link></MenuItem>)
+
+    let menuItems = []
+    menuItems.push(<MenuItem key={'register'} onClick={handleClose}><Link to='/register'> Sign Up! </Link></MenuItem>)
+    if(currentUser){
+    menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
+    menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
+
     menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Associate Information</Link></MenuItem>)
     menuItems.push(<MenuItem key={'allAssociate'} onClick={handleClose}><Link to='/allAssociate'>All Associates</Link></MenuItem>)
     menuItems.push(<MenuItem key={'batchInfo'} onClick={handleClose}><Link to='/batchInfo'>Batch Profile</Link></MenuItem>)
     menuItems.push(<MenuItem key={'currentBatches'} onClick={handleClose}><Link to='/currentBatches'>Current Batches</Link></MenuItem>)
+
     menuItems.push(<MenuItem key={'allProfile'} onClick={handleClose}><Link to='/allProfile'>Profile Service</Link></MenuItem>)
 
         return (
+
+    menuItems.push(<MenuItem key={'logout'} onClick={handleClose}><Link to='/logout'>Logout</Link></MenuItem>)
+    }
+    return (
+
             <nav>
                 <AppBar position="static">
                     <Toolbar className={classes.bar}>
@@ -82,6 +102,9 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                             onClose={handleClose}>
                             {menuItems}
                         </Menu>
+                        <IconButton onClick={event => window.location.href='/login'}>
+                            <PersonIcon />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
             </nav>
