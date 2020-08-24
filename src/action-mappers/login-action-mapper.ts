@@ -11,7 +11,7 @@ export const loginTypes = {
 export const loginActionMapper = (username:string, password:string) => async (dispatch:any) => {
     try  {
         if (username === 'logout'){
-            throw Error('logout') 
+           throw Error('logout') 
         }
         let body = { username, password };
         let response = await loginRemote(body);
@@ -20,7 +20,7 @@ export const loginActionMapper = (username:string, password:string) => async (di
             payload: {
                 response
             }
-        })
+       })
     } catch(error) {
         if(error.message.includes('400')){
             dispatch({

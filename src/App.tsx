@@ -12,11 +12,8 @@ import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { User } from '@auth0/auth0-react/dist/auth-state';
 import { NewUserComponent } from './components/Auth0SignUpComponent/Auth0SignupComponent';
 import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
-<<<<<<< HEAD
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
-=======
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
->>>>>>> 793adc3c9a5a99d00176169baa501b6e9a52fd8b
 
 
 function App() {
@@ -34,11 +31,8 @@ function App() {
           <Route path='/register' component={NewUserComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
-<<<<<<< HEAD
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)}/>
-=======
           <Route path='/getRole' component={GetRoleComponent}/>
->>>>>>> 793adc3c9a5a99d00176169baa501b6e9a52fd8b
         </Router>
       </Provider>
     </div>

@@ -1,10 +1,12 @@
 import React, { FunctionComponent, SyntheticEvent } from "react";
-import { Redirect, RouteComponentProps } from "react-router";
+import { RouteComponentProps, Redirect } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { loginActionMapper } from "../../action-mappers/login-action-mapper";
-import { IState } from "../../reducers";
+
 import '../../App.css'
-import { Button } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
+import { IState } from "../../reducers";
+
 
 
 interface ILogoutProps extends RouteComponentProps {
@@ -13,21 +15,27 @@ interface ILogoutProps extends RouteComponentProps {
 }
 
 export const LogoutComponent:FunctionComponent<ILogoutProps> = (props) => {
+  
     let dispatch = useDispatch()
-    
-    const logoutSubmit = async (e:SyntheticEvent) => {
-        e.preventDefault()
-        props.changeCurrentUser(null)
-        props.history.push('/login')
-
-       let thunk = loginActionMapper('logout', 'logout')
-      //  dispatch(thunk)
+  
+    const logoutSubmit = async () => {
+        let thunk = await loginActionMapper('logout', 'logout')
+        dispatch(thunk) 
     } 
     
-    return(
-        <div>
-            <Button id='logout' onClick={logoutSubmit}>Logout</Button>
-        </div>
-    )
+    logoutSubmit()
+    let currentUser = useSelector((state:IState)=>{
+        return state.loginState.currentUser
+    })
 
+    if(currentUser = undefined){
+        props.history.push('/login')
+    }
+
+    return(    
+        (currentUser)?   
+        <Button variant="contained"  onClick={logoutSubmit} >Logout</Button>   
+        :
+        <Redirect to='/login' />        
+    )
 }

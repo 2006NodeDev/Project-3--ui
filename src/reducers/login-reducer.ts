@@ -32,7 +32,13 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
                 ...state,
                 errorMessage:'Oops, Something Went Wrong'
             }
+        } case loginTypes.USER_LOGOUT:{
+            return {
+                ...state,
+                currentUser: undefined
+            }
         }
+
         default:{
             return state
         }

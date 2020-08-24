@@ -101,7 +101,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                                     id="username"
                                     label="Email"
                                     name="email"
-                                    defaultValue="@revature.net"
+                                    defaultValue="@mock.com"
                                     // value={username}
                                     onChange={updateUsername}
                                 />
