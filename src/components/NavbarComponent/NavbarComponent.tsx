@@ -82,8 +82,6 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
         menuItems.push(
             <Link to='updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
             <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
-            //these two have the same name/path!!!!!!!!!!!!!!!!!!!!!!!!!!!11
-            <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Info about associates</StyledMenuItem></Link>,
             <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
             <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
             <Link to='/batchInfo' className={classes.link}><StyledMenuItem key={'batchInfo'} onClick={handleClose}>Batch Profile</StyledMenuItem></Link>,
