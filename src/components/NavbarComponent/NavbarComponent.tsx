@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         link: {
             color:'#474C55', 
+            fontFamily: "Impact",
             textDecoration: "none",
             '&:hover': {
                 color: '#FFFFFF',
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
+//this is what makes it orange when you hover on a menu item
 const StyledMenuItem = withStyles((theme) => ({
     root: {
       '&:hover': {
@@ -72,6 +74,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
     })
 
     let menuItems = []
+    //do we need to specify that we only want this if there is no current user?
     menuItems.push(<Link to='/register' className={classes.link}><StyledMenuItem key={'register'} onClick={handleClose}> Sign Up! </StyledMenuItem></Link>)
     if(currentUser){
     menuItems.push(
