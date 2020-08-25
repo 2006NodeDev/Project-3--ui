@@ -1,11 +1,10 @@
 import React, { FunctionComponent, useState, useEffect, SyntheticEvent } from 'react';
 import { makeStyles, Container, Grid, Paper, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
-
 import clsx from 'clsx';
 import { getAllAssociates } from '../../remote/user-service/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent';
 import { retrieveFilteredResults } from '../../remote/user-service/retrieveFilteredResults';
-import { Associate } from '../../models/Associate';
+import { Associate } from '../../models/associate';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -92,8 +91,14 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
     
 
     let AssociateDisplays = allAssociate.map((associate) => {
-        return <AssociateDisplayComponent key={'associate-key-' + associate.salesforceId} associate={associate} />
+        return (
+            <div>
+                <AssociateDisplayComponent key={'associate-key-' + associate.salesforceId} associate={associate} {...props}/>
+                {/* <UpdateRoleComponent key={'associate-key-' + associate.salesforceId} associate={associate} {...props}/> */}
+            </div>    
+        )
     })
+
     
     return (
         <div>

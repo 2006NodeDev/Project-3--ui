@@ -65,13 +65,18 @@ export const UpdateRoleComponent: FunctionComponent<any> = (props) => {
     const submitRole = async (e: SyntheticEvent) => {
         e.preventDefault();
         try {
-            let thunk = await updateRoleActionMapper(currentUser.userId, 'auth0|5f358d7fa1b41f0067816993', role); // Replace 1 with userID selected by Admin
+            //let userId = await getUserByEmailRemote(props.associate.email)
+            // let thunk = await updateRoleActionMapper(currentUser.userId, userId, role); // Replace 1 with userID selected by Admin
+            let thunk = await updateRoleActionMapper(currentUser.userId, props.associate.email, role); // Replace 1 with userID selected by Admin
             dispatch(thunk);
             props.history.push('/home')
         } catch (error) {
             console.log(error);
         }
     }
+
+    
+
     return (
         <Container className={classes.component} maxWidth="xs">
             <div>

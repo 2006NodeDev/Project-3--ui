@@ -1,4 +1,4 @@
-import { Associate } from "./Associate";
+import { Associate } from "./associate";
 
 export interface AssociateAssignment {
     trainingStatus: string
