@@ -50,9 +50,9 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
         try {
             if (password1 !== password2){
                 toast.error('Passwords Do Not Match')
-            } else {
-                let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
-                dispatch(thunk);
+            } else { //idk why this is giving an error
+                // let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
+                // dispatch(thunk); 
             }
         } catch (error) {
             console.log(error);
@@ -119,14 +119,16 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                     <div/>
 
                 </Grid>
-                </div>
+                </div> 
+                : //wont work without this, but we should change it
+                <div/>
     )}
 
-             {/* <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
-            <input type="password" name="password2" placeholder="new password" value={password2} onChange={updatePassword2}></input>
-            <button className="btn " type="submit" onClick={submitPassword}> Submit </button>
-        </div>
-        :
-        <div> Loading... </div>
-    )
-}
+//              {/* <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
+//             <input type="password" name="password2" placeholder="new password" value={password2} onChange={updatePassword2}></input>
+//             <button className="btn " type="submit" onClick={submitPassword}> Submit </button>
+//         </div>
+//         :
+//         <div> Loading... </div>
+//     )
+// }

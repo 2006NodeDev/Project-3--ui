@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         link: {
             color:'#474C55', 
+            fontFamily: "Impact",
             textDecoration: "none",
             '&:hover': {
                 color: '#FFFFFF',
@@ -47,13 +48,14 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
+//this is what makes it orange when you hover on a menu item
 const StyledMenuItem = withStyles((theme) => ({
     root: {
-      '&:hover': {
-        backgroundColor: '#F26925',
-      },
+        '&:hover': {
+            backgroundColor: '#F26925',
+        },
     },
-  }))(MenuItem);
+}))(MenuItem);
 
 export const NavBarComponent: FunctionComponent<any> = (props) => {
     const classes = useStyles();
@@ -67,66 +69,50 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
         setAnchorEl(null);
     };
 
-    const currentUser = useSelector((state:IState)=>{
+    const currentUser = useSelector((state: IState) => {
         return state.loginState.currentUser
     })
 
-
-
-    menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'home'} onClick={handleClose}><Link to='/home'>Quick Links</Link></MenuItem>)
-
     let menuItems = []
-    menuItems.push(<Link to='/register' className={classes.link}><StyledMenuItem key={'register'} onClick={handleClose}> Sign Up! </StyledMenuItem></Link>)
-    if(currentUser){
+    //do we need to specify that we only want this if there is no current user?
+    menuItems.push(<StyledMenuItem key={'register'} onClick={handleClose}><Link to='/register' className={classes.link}> Sign Up! </Link></StyledMenuItem>)
 
-    menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
+    if (currentUser) {
 
-    menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Associate Information</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'allAssociate'} onClick={handleClose}><Link to='/allAssociate'>All Associates</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'batchInfo'} onClick={handleClose}><Link to='/batchInfo'>Batch Profile</Link></MenuItem>)
-    menuItems.push(<MenuItem key={'currentBatches'} onClick={handleClose}><Link to='/currentBatches'>Current Batches</Link></MenuItem>)
+        menuItems.push(
+            <Link to='updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
+            <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
+            //these two have the same name/path!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+            <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Info about associates</StyledMenuItem></Link>,
+            <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
+            <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
+            <Link to='/batchInfo' className={classes.link}><StyledMenuItem key={'batchInfo'} onClick={handleClose}>Batch Profile</StyledMenuItem></Link>,
+            <Link to='/currentBatches' className={classes.link}><StyledMenuItem key={'currentBatches'} onClick={handleClose}>Current Batches</StyledMenuItem></Link>,
+            <Link to='/allProfile' className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
+            <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>)
 
-    menuItems.push(<MenuItem key={'allProfile'} onClick={handleClose}><Link to='/allProfile'>Profile Service</Link></MenuItem>)
+    } return (
+        <nav>
+            <AppBar position="static">
+                <Toolbar className={classes.bar}>
 
-        return (
-
-    menuItems.push(<MenuItem key={'logout'} onClick={handleClose}><Link to='/logout'>Logout</Link></MenuItem>)
-menuItems.push(
-        <Link to='updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password</StyledMenuItem></Link>,
-        <Link to='/associateInfo'  className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Info about associates</StyledMenuItem></Link>,
-        <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
-        <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
-        <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
-        <Link to='/currentBatches' className={classes.link}><StyledMenuItem key={'currentBatches'} onClick={handleClose}>Current Batches</StyledMenuItem></Link>,
-        <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>)
-
-    }
-    return (
-
-            <nav>
-                <AppBar position="static">
-                    <Toolbar className={classes.bar}>
-                    
-                        <img className={classes.logo} src={('https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/logo.png')} alt = 'Revature Logo'/>
-                        <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu id="simple-menu"
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}>
-                            {menuItems}
-                        </Menu>
-                        <IconButton onClick={event => window.location.href='/login'}>
-                            <PersonIcon />
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-            </nav>
+                    <img className={classes.logo} src={('https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/logo.png')} alt='Revature Logo' />
+                    <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
+                        <MenuIcon />
+                    </IconButton>
+                    <Menu id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}>
+                        {menuItems}
+                    </Menu>
+                    <IconButton component={Link} to="/login">
+                        <PersonIcon />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+        </nav>
 
     )
 }
