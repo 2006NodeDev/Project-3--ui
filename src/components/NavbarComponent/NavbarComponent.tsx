@@ -107,7 +107,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                         onClose={handleClose}>
                         {menuItems}
                     </Menu>
-                    <IconButton onClick={event => window.location.href = '/login'}>
+                    <IconButton component={Link} to="/login">
                         <PersonIcon />
                     </IconButton>
                 </Toolbar>
