@@ -121,7 +121,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                 </Grid>
                 </div> 
                 : //wont work without this, but we should change it
-                <div/>
+                <div> Loading... </div>
     )}
 
 //              {/* <input type="password" name="password1" placeholder="new password" value={password1} onChange={updatePassword1}></input>
