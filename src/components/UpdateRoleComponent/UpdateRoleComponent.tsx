@@ -1,37 +1,65 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { updateRoleActionMapper } from '../../action-mappers/updateRole-action-mapper';
-import React, { FunctionComponent, useState, SyntheticEvent, useEffect } from 'react'
-import { createStyles, makeStyles, Theme, InputLabel, Select, FormControl } from '@material-ui/core';
+import React, { FunctionComponent, useState, SyntheticEvent } from 'react'
+import { createStyles, makeStyles, Theme, InputLabel, Select, FormControl, Container, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { IState } from '../../reducers';
-import { getUserByEmailRemote } from '../../remote/get-user-by-email-remote';
+import { deepOrange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }),
+    createStyles({
+        formControl: {
+            margin: theme.spacing(1),
+            minWidth: 120,
+        },
+        component: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '80vh'
+        },
+        selectEmpty: {
+            marginTop: theme.spacing(2),
+        },
+        btn: {
+            background: "#61dafb",
+            borderColor: "#61dafb"
+        },
+        input: {
+            '&:before': {
+                borderRadius: 4,
+                borderColor: "#f26926",
+                boxShadow: "#f26926"
+            },
+            '&:after': {
+                borderRadius: 4,
+                borderColor: "#f26926",
+                boxShadow: "#f26926"
+            }
+        }
+    }),
 );
 
-export const UpdateRoleComponent:FunctionComponent<any> = (props) => {
+const theme = createMuiTheme({
+    palette: {
+        primary: deepOrange,
+    },
+});
+
+export const UpdateRoleComponent: FunctionComponent<any> = (props) => {
     const classes = useStyles();
     const [role, changeRole] = useState('');
 
-    const updateRole = (e:any) =>{
+    const updateRole = (e: any) => {
         e.preventDefault();
         changeRole(e.currentTarget.value);
         console.log(role);
-        
+
     }
 
-    let currentUser = useSelector((state:IState)=>{
+    let currentUser = useSelector((state: IState) => {
         return state.loginState.currentUser
     })
-    
+
     let dispatch = useDispatch();
 
     const submitRole = async (e: SyntheticEvent) => {
@@ -49,22 +77,26 @@ export const UpdateRoleComponent:FunctionComponent<any> = (props) => {
     
 
     return (
-
-        <div>
-            <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-native-simple">Role</InputLabel>
-                <Select native value={role} onChange={updateRole} inputProps={{
-                    name: 'role',
-                    id: 'age-native-simple',
-                }}>
-                    <option value=''></option>
-                    <option value='Associate'>Associate</option>
-                    <option value='Trainer'>Trainer</option>
-                    <option value='Admin'>Admin</option>
-                </Select>
-            </FormControl>
-            <button className="btn " type="submit" onClick={submitRole}> Submit </button>
-        </div>
+        <Container className={classes.component} maxWidth="xs">
+            <div>
+                <h2>Update A Role</h2>
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-native-simple">Role</InputLabel>
+                    <ThemeProvider theme={theme}>
+                        <Select className={classes.input} inputProps={{
+                            name: 'role',
+                            id: 'age-native-simple',
+                        }}>
+                            <option value='Associate'>Associate</option>
+                            <option value='Trainer'>Trainer</option>
+                            <option value='Admin'>Admin</option>
+                        </Select>
+                    </ThemeProvider>
+                </FormControl>
+                <br /><br />
+                <button className={classes.btn} color="default" type="submit" > Submit </button>
+            </div>
+        </Container>
     )
 
 }
