@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
 import { TextField, Button } from "@material-ui/core"
-import { submitSignUpRemote } from "../../remote/new-user-signup-remote"
+import { submitSignUpRemote } from "../../remote/user-service/newUserSignup"
 import { useDispatch } from "react-redux"
 import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
 

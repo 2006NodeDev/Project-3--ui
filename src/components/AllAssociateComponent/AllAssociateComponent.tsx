@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState, useEffect, SyntheticEvent } from 'react';
 import { makeStyles, Container, Grid, Paper, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
-import { Associate } from '../../models/associate';
+import { Associate } from '../../models/Associate';
 import clsx from 'clsx';
-import { getAllAssociates } from '../../remote/user-service-api/getAllAssociate';
+import { getAllAssociates } from '../../remote/user-service/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent';
-import { retrieveFilteredResults } from '../../remote/user-service-api/retrieveFilteredResults';
+import { retrieveFilteredResults } from '../../remote/user-service/retrieveFilteredResults';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,8 +55,8 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
     let [allAssociate, changeAllAssociate] = useState<Associate[]>([])
 
     const [batchQuarter, setBatchQuarter] = React.useState('');
-  const [batchSkill, setBatchSkill] = React.useState('');
-  const [batchYear, setBatchYear] = React.useState('')
+    const [batchSkill, setBatchSkill] = React.useState('');
+    const [batchYear, setBatchYear] = React.useState('')
 
   const handleSkillChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setBatchSkill(event.target.value as string);
@@ -79,14 +79,16 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
         if (allAssociate.length === 0) {
             getAssociates()
         }
+        
+      
     })
-
     const applyFilter = async (e: SyntheticEvent) => {
-        e.preventDefault()
+      e.preventDefault()
 
-        console.log(batchSkill, batchQuarter, batchYear);
-        await retrieveFilteredResults(batchSkill, batchQuarter, batchYear)
-    }
+      let filteredResults = await retrieveFilteredResults(batchSkill, batchQuarter, batchYear)
+      changeAllAssociate(filteredResults)
+  }
+    
 
     let AssociateDisplays = allAssociate.map((associate) => {
         return <AssociateDisplayComponent key={'associate-key-' + associate.salesforceId} associate={associate} />
@@ -103,14 +105,14 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
           value={batchSkill}
           onChange={handleSkillChange}
         >
-          <MenuItem value={'.NET/Microservices'}>.NET with Microservices</MenuItem>
+          <MenuItem value={'.NET%2FMicroservices'}>.NET with Microservices</MenuItem>
           <MenuItem value={'Java with Automation'}>Java with Automation</MenuItem>
           <MenuItem value={'SalesForce'}>SalesForce</MenuItem>
-          <MenuItem value={'Java/Microservices'}>Java with Microservices</MenuItem>
+          <MenuItem value={'Java%2FMicroservices'}>Java with Microservices</MenuItem>
           <MenuItem value={'PEGA'}>Pegasystems</MenuItem>
-          <MenuItem value={'Java Devops'}>Java using Devops Practices</MenuItem>
-          <MenuItem value={'Java React'}>Java using React</MenuItem>
-          <MenuItem value={'Big Data'}>Big Data</MenuItem>
+          <MenuItem value={'Java%20Devops'}>Java using Devops Practices</MenuItem>
+          <MenuItem value={'Java%20React'}>Java using React</MenuItem>
+          <MenuItem value={'Big%20Data'}>Big Data</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
@@ -136,10 +138,10 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
           value={batchQuarter}
           onChange={handleQuarterChange}
         >
-          <MenuItem value={'Q1'}>Q1</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
-          <MenuItem value={'Q2'}>Q2</MenuItem>
-          <MenuItem value={'Q3'}>Q3</MenuItem>
-          <MenuItem value={'Q4'}>Q4</MenuItem> {/*Ask backend group about the best way to format quaters: a date? Just 2020Q1 */}
+          <MenuItem value={'1'}>Q1</MenuItem> 
+          <MenuItem value={'2'}>Q2</MenuItem>
+          <MenuItem value={'3'}>Q3</MenuItem>
+          <MenuItem value={'4'}>Q4</MenuItem>
 
         </Select>
       </FormControl>

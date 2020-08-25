@@ -1,8 +1,8 @@
-import { userServiceBaseClient } from ".";
+import { userServiceBaseClient } from "..";
 
 export const loginRemote = async (body:any) => {
     try{
-        let response = await userServiceBaseClient.post('/login', body)
+        let response = await userServiceBaseClient.post('/user-service/login', body)
         console.log(response);
 
         userServiceBaseClient.defaults.headers.common['Authorization'] = response.headers.authorization

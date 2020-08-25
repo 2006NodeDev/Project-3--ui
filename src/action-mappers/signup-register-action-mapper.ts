@@ -1,4 +1,4 @@
-import { submitSignUpRemote } from "../remote/new-user-signup-remote";
+import { submitSignUpRemote } from "../remote/user-service/newUserSignup";
 
 
 
