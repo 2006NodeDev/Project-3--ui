@@ -75,11 +75,11 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
 
     let menuItems = []
     //do we need to specify that we only want this if there is no current user?
-    menuItems.push(<Link to='/register' className={classes.link}><StyledMenuItem key={'register'} onClick={handleClose}> Sign Up! </StyledMenuItem></Link>)
+    menuItems.push(<StyledMenuItem key={'register'} onClick={handleClose}><Link to='/register' className={classes.link}> Sign Up! </Link></StyledMenuItem>)
 
     if (currentUser) {
 
-        menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='updatePassword'>Update Password</Link></MenuItem>)
+        menuItems.push(<MenuItem key={'updatePassword'} onClick={handleClose}><Link to='/updatePassword'>Update Password</Link></MenuItem>)
         menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Info about associates</Link></MenuItem>)
         menuItems.push(<MenuItem key={'updateRole'} onClick={handleClose}><Link to='/updateRole'> Update Role</Link></MenuItem>)
         menuItems.push(<MenuItem key={'associateInfo'} onClick={handleClose}><Link to='/associateInfo'>Associate Information</Link></MenuItem>)
@@ -105,7 +105,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                         onClose={handleClose}>
                         {menuItems}
                     </Menu>
-                    <IconButton onClick={event => window.location.href = '/login'}>
+                    <IconButton component={Link} to="/login">
                         <PersonIcon />
                     </IconButton>
                 </Toolbar>
