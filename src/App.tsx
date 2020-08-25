@@ -18,6 +18,7 @@ import { AllProfileComponent } from './components/AllProfileComponent/AllProfile
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 import { ToastContainer } from 'react-toastify';
+import {AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
 
 function App() {
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
@@ -38,6 +39,8 @@ function App() {
           <Route path='/currentBatches' component={CurrentBatchesComponent} />
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
+          <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
+
           <Route path='/home'>
             <WelcomeComponent />
             <HomePageComponent />

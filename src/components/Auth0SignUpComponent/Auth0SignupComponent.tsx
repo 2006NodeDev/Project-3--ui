@@ -1,4 +1,5 @@
 import { FunctionComponent, useState, SyntheticEvent } from "react"
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
@@ -9,10 +10,30 @@ import { signUpActionMapper } from "../../action-mappers/signup-register-action-
 
 
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    form:{
+     fontFamily:'arial',
+     color:'#000000'
+    },
+    h2:{
+    fontFamily:'arial'
+    },
+    Button: {
+        backgroundColor:'#FF4500',
+        color:'#ffffff',
+        minWidth: 160,
+        height:55,
+        borderRadius: 25
+        
+    }
+  
+  }),
+);
 
 export const NewUserComponent:FunctionComponent<any> = (props) => {
   
-    //const classes = useStyles();
+    const classes = useStyles();
 
     let [preferredName, changePreferredName] = useState('')
     let [lastName, changeLastName] = useState('')
@@ -67,27 +88,28 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let thunk = signUpActionMapper(email, password, {user_metadata:{preferredName, lastName}}, connection);
             dispatch(thunk);
         } 
-        
+        props.history.push('/login')
     }
 
 
     return (
         <div>
-            <form onSubmit={submitUser}>
-            <fieldset>
-                <TextField id="standard-basic" label="Preferred Name" value={preferredName} onChange={updatePreferredName} />
+            
+            <h2 className = {classes.h2}>Associate Companion Sign Up</h2>
+            <form onSubmit={submitUser} className ={classes.form}>  
+           
+                <TextField id="outlined-basic" variant="outlined" label="Preferred Name" value={preferredName} onChange={updatePreferredName} /><br /><br />
                 <br/>
-                <TextField id="standard-basic" label="Lastname" value={lastName} onChange={updateLastName}/>
+                <TextField id="outlined-basic" variant="outlined" label="Last Name" value={lastName} onChange={updateLastName}/><br /><br />
                 <br/>
-                <TextField id="standard-basic" label="Email" value={email} onChange={updateEmail} />
+                <TextField id="outlined-basic" variant="outlined" label="Email" value={email} onChange={updateEmail} /><br /><br />
                 <br/>
-                <TextField id="standard-basic" type='password' label="Password" value={password} onChange={updatePassword}/>
+                <TextField id="outlined-basic" variant="outlined" type='password' label="Password" value={password} onChange={updatePassword}/><br /> <br />
                 <br/>
-                <TextField id="standard-basic" type='password' label="Confirm" value={confirmPassword} onChange={updateConfirmPassword}/>
+                <TextField id="outlined-basic" variant="outlined" type='password' label="Confirm Password" value={confirmPassword} onChange={updateConfirmPassword}/> <br />
                 <br/>
-                <Button variant="contained" type='submit'>Submit</Button>
+                <Button className ={classes.Button}  variant="contained" type='submit'>Sign Up</Button>
                 
-                </fieldset>
             </form>
         </div>
     )

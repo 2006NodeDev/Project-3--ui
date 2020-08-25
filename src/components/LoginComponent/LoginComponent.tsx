@@ -75,8 +75,8 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                 let thunk = await loginActionMapper(username, password)
                 dispatch(thunk)
 
-                props.history.push('/home')
-            //     props.history.push('/getRole')
+                // props.history.push('/login')
+                props.history.push('/getRole')
             }
         } catch (error) {
             console.log(error);
