@@ -67,6 +67,7 @@ export const UpdateRoleComponent: FunctionComponent<any> = (props) => {
         try {
             let thunk = await updateRoleActionMapper(currentUser.userId, 'auth0|5f358d7fa1b41f0067816993', role); // Replace 1 with userID selected by Admin
             dispatch(thunk);
+            props.history.push('/home')
         } catch (error) {
             console.log(error);
         }

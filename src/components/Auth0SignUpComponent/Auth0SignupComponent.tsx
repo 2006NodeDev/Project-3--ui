@@ -67,7 +67,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let thunk = signUpActionMapper(email, password, {user_metadata:{preferredName, lastName}}, connection);
             dispatch(thunk);
         } 
-        
+        props.history.push('/login')
     }
 
 
