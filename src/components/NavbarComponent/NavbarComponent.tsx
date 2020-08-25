@@ -87,6 +87,8 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
         menuItems.push(<MenuItem key={'currentBatches'} onClick={handleClose}><Link to='/currentBatches'>Current Batches</Link></MenuItem>)
         menuItems.push(<MenuItem key={'allProfile'} onClick={handleClose}><Link to='/allProfile'>Profile Service</Link></MenuItem>)
         menuItems.push(<MenuItem key={'logout'} onClick={handleClose}><Link to='/logout'>Logout</Link></MenuItem>)
+        menuItems.push(<MenuItem key={'profileInfo'} onClick={handleClose}><Link to='/profileInfo'>Associate Info by Trainer</Link></MenuItem>)
+
 
     } return (
         <nav>
