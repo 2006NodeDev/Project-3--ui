@@ -9,7 +9,6 @@ export const GetRoleComponent:FunctionComponent<any> = (props) => {
         return state.loginState.currentUser
     })
 
-
     let dispatch = useDispatch();
 
     const getRole = async () => {

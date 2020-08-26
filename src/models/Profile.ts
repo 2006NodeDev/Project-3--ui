@@ -10,8 +10,8 @@ export class Profile {
     favFoods!: string;
     specialTrait!: string;
     degree!: string;
-    favLangauge!: string;
+    favLanguage!: string;
     relevantSkills!: string;
-    introvert!: Boolean;
-    studyGroup!: Boolean;
+    introvert!: boolean;
+    studyGroup!: boolean;
 }

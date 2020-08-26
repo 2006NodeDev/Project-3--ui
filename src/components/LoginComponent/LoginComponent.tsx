@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useState, SyntheticEvent, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import { loginActionMapper, loginErrorReset } from '../../action-mappers/login-action-mapper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField, Button, Theme, Container, createMuiTheme } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import { makeStyles, createStyles, ThemeProvider } from '@material-ui/styles';
 import { deepOrange } from '@material-ui/core/colors';
 import { IState } from '../../reducers';
+import { loginActionMapper, loginErrorReset } from '../../action-mappers/login-action-mapper';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

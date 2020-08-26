@@ -54,6 +54,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                 // let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
                 // dispatch(thunk); 
             }
+            props.history.push('/home')
         } catch (error) {
             console.log(error);
         }

@@ -20,8 +20,33 @@ import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent
 import { ToastContainer } from 'react-toastify';
 import HomeComp from './components/HomeComp/HomeComp';
 import { ProfileComponent } from './components/ProfileComponent/ProfileComponent';
+import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
+import { makeStyles, Theme, createStyles } from '@material-ui/core';
+import { EditAssociateProfile } from './components/AssociateProfileComponent/EditAssociateProfile';
+import { CreateAssociateProfile } from './components/AssociateProfileComponent/CreateAssociateProfile';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    toast: {
+      background: "#E0E0E0",
+      border: "#f26925 solid",
+      borderRadius: "5px",
+      borderTopColor: "#f26925",
+      borderTopWidth: "7px",
+      borderWidth: "0px",
+      color: "#474c55",
+      fontFamily: 'sans-serif',
+      height: "100%",
+      marginLeft: "70%",
+      marginTop: "2%",
+      padding: "20px",
+      width: "250px",
+    }
+  })
+)
 
 function App() {
+  const classes = useStyles();
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
 
   return (
@@ -32,7 +57,10 @@ function App() {
           {/* <Redirect to='/home' /> */}
 
           <NavBarComponent user={currentUser} />
+          
           <Route path='/updatePassword' component={UpdatePasswordComponent} />
+          <Route path='/editProfile' component={EditAssociateProfile} />
+          <Route path='/createProfile' component={CreateAssociateProfile}/>
           <Route path='/updateRole' component={UpdateRoleComponent} />
           <Route exact path='/' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
           <Route path='/register' component={NewUserComponent} />
@@ -41,10 +69,11 @@ function App() {
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
           <Route exact path='/profile/:userId' component={ProfileComponent} user={currentUser}/>
+          <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
           <Route path='/home'>
-            {/* <WelcomeComponent /> */}
             <HomeComp />
           </Route>
+          
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
           <Route path='/getRole' component={GetRoleComponent} />
         </Router>
@@ -55,6 +84,8 @@ function App() {
           closeOnClick={true}
           pauseOnHover={true}
           draggable={true}
+          closeButton={false}
+          className={classes.toast}
         />
       </Provider>
     </div>

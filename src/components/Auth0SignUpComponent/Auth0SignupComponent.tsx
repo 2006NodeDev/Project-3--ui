@@ -10,6 +10,7 @@ import { signUpActionMapper } from "../../action-mappers/signup-register-action-
 import { deepOrange } from "@material-ui/core/colors";
 
 
+ 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -117,7 +118,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let thunk = signUpActionMapper(email, password, {user_metadata:{preferredName, lastName}}, connection);
             dispatch(thunk);
         } 
-        
+        props.history.push('/login')
     }
 
     return (
