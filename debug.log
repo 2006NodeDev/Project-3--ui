@@ -106,3 +106,10 @@
 [0819/180308.323:ERROR:crash_report_database_win.cc(428)] unexpected header
 [0820/101324.070:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
 [0824/123021.230:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0825/222845.374:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/223845.376:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/223845.377:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/223958.553:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/224345.376:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/225845.380:ERROR:crash_report_database_win.cc(428)] unexpected header
+[0825/231345.388:ERROR:crash_report_database_win.cc(428)] unexpected header
