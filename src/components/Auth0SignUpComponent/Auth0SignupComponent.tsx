@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme, ThemeProvider, createMuiTheme } from '
 import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
-import { TextField, Button } from "@material-ui/core"
+import { TextField, Button,Typography,Container } from "@material-ui/core"
 import { submitSignUpRemote } from "../../remote/user-service/newUserSignup"
 import { useDispatch } from "react-redux"
 import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
@@ -13,46 +13,35 @@ import { deepOrange } from "@material-ui/core/colors";
  
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    form:{
-     fontFamily:'arial',
-     color:'#000000',
-     width: '100%',
-     marginTop: 10,
-    },
-    h2:{
-    fontFamily:'arial'
-    },
-    Button: {
-        backgroundColor:'#F26926',
-        color:'#ffffff',
-        minWidth: 160,
-        height:55,
-        borderRadius: 25
-        
-    },
-    component: {
-        marginTop: 50,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    button: {
-        color: "#474c55",
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontFamily: 'sans-serif'
-    },
-    font: {
-        fontFamily: 'sans-serif',
-        fontWeight: 'bold'
-    },
-    links: {
-        color: "#f26925",
-        fontWeight: 'bold',
-    },
-  
-  }),
+    createStyles({
+        logo: {
+            maxHeight: 100
+        },
+        component: {
+            marginTop: 50,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+        },
+        form: {
+            width: '100%',
+            marginTop: 10,
+        },
+        button: {
+            color: "#474c55",
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            fontFamily: 'sans-serif'
+        },
+        font: {
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold'
+        },
+        links: {
+            color: "#f26925",
+            fontWeight: 'bold',
+        },
+    }),
 );
 
 const theme = createMuiTheme({
@@ -122,25 +111,34 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
     }
 
     return (
-        <div>
-            
-            <h2 className = {classes.h2}>Associate Companion Sign Up</h2>
+        <Container component="main" maxWidth="xs">
+                
+        <div className={classes.component}>
+             <img className={classes.logo} src="https://revature.com/wp-content/uploads/2017/08/rev-logo-2.png" />
+                        <br /><br /><br />
+            <Typography variant="h6" className={classes.font}>
+                            Welcome to Associate Companion 
+                    </Typography>{/*<br /> */}
+                    <Typography variant="h6" className={classes.font}>
+                            Sign Up Here!!
+                    </Typography>
             <form onSubmit={submitUser} className ={classes.form}>  
             <ThemeProvider theme={theme}>
-                <TextField id="outlined-basic" variant="outlined" label="Preferred Name" value={preferredName} onChange={updatePreferredName} /><br /><br />
+                <TextField id="outlined-basic" variant="outlined" margin="normal"   fullWidth label="Preferred Name" value={preferredName} onChange={updatePreferredName} /><br /><br />
                 {/* <br/> */}
-                <TextField id="outlined-basic" variant="outlined" label="Last Name" value={lastName} onChange={updateLastName}/><br /><br />
+                <TextField id="outlined-basic" variant="outlined"  margin="normal"    fullWidth label="Last Name" value={lastName} onChange={updateLastName}/><br /><br />
                 {/* <br/> */}
-                <TextField id="outlined-basic" variant="outlined" label="Email" value={email} onChange={updateEmail} /><br /><br />
+                <TextField id="outlined-basic" variant="outlined"   margin="normal"   fullWidth label="Email" value={email} onChange={updateEmail} /><br /><br />
                 {/* <br/> */}
-                <TextField id="outlined-basic" variant="outlined" type='password' label="Password" value={password} onChange={updatePassword}/><br /> <br />
+                <TextField id="outlined-basic" variant="outlined"  margin="normal"   fullWidth type='password' label="Password" value={password} onChange={updatePassword}/><br /> <br />
                 {/* <br/> */}
-                <TextField id="outlined-basic" variant="outlined" type='password' label="Confirm Password" value={confirmPassword} onChange={updateConfirmPassword}/> <br />
+                <TextField id="outlined-basic" variant="outlined"  margin="normal"    fullWidth type='password' label="Confirm Password" value={confirmPassword} onChange={updateConfirmPassword}/> <br />
                 <br/>
                 </ThemeProvider>
-                <Button className ={classes.Button}  variant="contained" type='submit'>Sign Up</Button>
+                <Button className ={classes.button}  variant="contained" type='submit'>Sign Up</Button>
                 
             </form>
         </div>
+       </Container>
     )
 }
