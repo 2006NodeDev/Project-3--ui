@@ -2,38 +2,98 @@ import React, { useState } from 'react';
 import './App.css';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { UpdatePasswordComponent } from './components/UpdatePasswordComponent/UpdatePasswordComponent';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { UpdatePasswordComponent } from './components/UpdatePasswordComponent/UpdatePasswordComponent'
 import { UpdateRoleComponent } from './components/UpdateRoleComponent/UpdateRoleComponent';
-import { AssociateInfoComponent } from './components/AssociateInfoComponent/AssociateInfoComponent';
 import { AllAssociatesComponent } from './components/AllAssociateComponent/AllAssociateComponent'
+import { BatchbyTrainerEmailComponent } from './components/BatchbyTrainerComponent/BatchbyTrainerEmailComponent';
 import { NavBarComponent } from './components/NavbarComponent/NavbarComponent';
 import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { User } from '@auth0/auth0-react/dist/auth-state';
 import { NewUserComponent } from './components/Auth0SignUpComponent/Auth0SignupComponent';
 import { CurrentBatchesComponent } from './components/CurrentBatchesComponent/CurrentBatches';
+import HomePageComponent from './components/HomePageComponent/HomePageComponent';
+import WelcomeComponent from './components/WelcomeComponent/WelcomeComponent'
+import { AllProfileComponent } from './components/AllProfileComponent/AllProfileComponent'
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
+import { ToastContainer } from 'react-toastify';
+import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
+import { makeStyles, Theme, createStyles } from '@material-ui/core';
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    toast: {
+      background: "#E0E0E0",
+      border: "#f26925 solid",
+      borderRadius: "5px",
+      borderTopColor: "#f26925",
+      borderTopWidth: "7px",
+      borderWidth: "0px",
+      color: "#474c55",
+      fontFamily: 'sans-serif',
+      height: "100%",
+      marginLeft: "70%",
+      marginTop: "2%",
+      padding: "20px",
+      width: "250px",
+    }
+  })
+)
 
 function App() {
+  const classes = useStyles();
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 34cf66166e9899f2ef94b2c9676aa33472642a1a
   return (
     <div className="App">
       <Provider store={store}>
         <Router>
-        <NavBarComponent user={currentUser}/>
-          <Route path='/updatePassword' component={UpdatePasswordComponent}/>
-          <Route path='/updateRole' component={UpdateRoleComponent}/>
-          <Route path='/associateInfo' component={AssociateInfoComponent}/>
+
+          <Redirect to='/home' />
+
+          <NavBarComponent user={currentUser} />
+          
+          <Route path='/updatePassword' component={UpdatePasswordComponent} />
+          <Route path='/updateRole' component={UpdateRoleComponent} />
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
+<<<<<<< HEAD
           <Route path='/register' component={NewUserComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)} />
           <Route path='/getRole' component={GetRoleComponent}/>
+=======
+          <Route path='/register' component={NewUserComponent} />
+          <Route path='/allAssociate' component={AllAssociatesComponent} />
+          <Route path='/currentBatches' component={CurrentBatchesComponent} />
+          <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
+          <Route path='/allProfile' component={AllProfileComponent} />
+          <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
+
+          <Route path='/home'>
+            <WelcomeComponent />
+            <HomePageComponent />
+          </Route>
+          
+          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
+          <Route path='/getRole' component={GetRoleComponent} />
+>>>>>>> 34cf66166e9899f2ef94b2c9676aa33472642a1a
         </Router>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={true}
+          closeButton={false}
+          className={classes.toast}
+        />
       </Provider>
     </div>
   );

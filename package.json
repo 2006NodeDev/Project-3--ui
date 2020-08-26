@@ -18,8 +18,10 @@
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux": "^3.6.0",
+    "auth0-js": "^9.13.4",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "fontsource-roboto": "^3.0.3",
     "react": "^16.13.1",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.13.1",
@@ -32,7 +34,7 @@
     "redux": "^4.0.5",
     "redux-cookies-middleware": "^0.2.1",
     "redux-thunk": "^2.3.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",

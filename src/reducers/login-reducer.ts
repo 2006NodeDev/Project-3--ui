@@ -1,4 +1,4 @@
-import { ILoginState } from ".";
+import { ILoginState } from "./index"
 import { AnyAction } from "redux";
 import { loginTypes } from "../action-mappers/login-action-mapper";
 
@@ -27,6 +27,12 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
                 errorMessage:'Incorrect Username or Password'
             }
         }
+        case loginTypes.USER_NOT_FOUND:{
+            return {
+                ...state,
+                errorMessage: 'User Not Found'
+            }
+        }
         case loginTypes.INTERNAL_SERVER:{
             return {
                 ...state,
@@ -36,6 +42,12 @@ export const loginReducer = (state=initialState, action:AnyAction) => {
             return {
                 ...state,
                 currentUser: undefined
+            }
+        }
+        case loginTypes.RESET_ERROR:{
+            return {
+                ...state,
+                errorMessage:''
             }
         }
 

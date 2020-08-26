@@ -3,10 +3,11 @@ import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
 import { TextField, Button, makeStyles, Theme, createStyles, createMuiTheme, Container, Grid, Typography, ThemeProvider } from "@material-ui/core"
-import { submitSignUpRemote } from "../../remote/new-user-signup-remote"
+
 import { useDispatch, useSelector } from "react-redux"
 import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
 import { deepOrange } from "@material-ui/core/colors"
+import { submitSignUpRemote } from "../../remote/user-service/newUserSignup"
 //import { IState } from "../../reducers"
 
 
@@ -47,7 +48,6 @@ const theme = createMuiTheme({
         primary: deepOrange,
     },
 });
-
 
 export const NewUserComponent:FunctionComponent<any> = (props) => {
    

@@ -1,4 +1,4 @@
-import { updateRoleRemote } from "../remote/update-role-remote";
+import { updateRoleRemote } from "../remote/user-service/updateRole";
 
 export const updateRoleTypes = {
     SUCCEFUL_UPDATE:'SUCCESSFULLY_UPDATED_ROLE',
@@ -6,9 +6,9 @@ export const updateRoleTypes = {
     UNAUTHORIZED: 'UPDATE_ROLE_UNAUTHORIZED'
 }
 
-export const updateRoleActionMapper = (currentUserId:string, userId:string, role:string) => async (dispatch:any) =>{
+export const updateRoleActionMapper = (currentUserId:string, email:string, role:string) => async (dispatch:any) =>{
     try {
-        let body = { currentUserId, userId, role };
+        let body = { currentUserId, email, role };
         let response = 'Updated Role Successfully';
         await updateRoleRemote(body);
         dispatch({
