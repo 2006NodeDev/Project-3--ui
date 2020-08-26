@@ -1,4 +1,6 @@
 import { loginRemote } from "../remote/login";
+import { type } from "os";
+
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN:'SUCCESSFULLY_LOGGED_IN',

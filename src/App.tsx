@@ -18,7 +18,7 @@ import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent
 
 function App() {
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
-  
+ 
   return (
     <div className="App">
       <Provider store={store}>
@@ -31,7 +31,7 @@ function App() {
           <Route path='/register' component={NewUserComponent}/>
           <Route path='/allAssociate' component={AllAssociatesComponent}/>
           <Route path='/currentBatches' component={CurrentBatchesComponent}/>
-          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)}/>
+          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)} />
           <Route path='/getRole' component={GetRoleComponent}/>
         </Router>
       </Provider>
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default  App;
