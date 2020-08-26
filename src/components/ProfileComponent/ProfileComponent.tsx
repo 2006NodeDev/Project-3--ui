@@ -6,13 +6,17 @@ import { Profile } from '../../models/Profile'
 
 export const ProfileComponent:FunctionComponent<any> = (props)=>{
     let [userProfile, changeUserProfile] = useState<null | Profile>(null)
-    let {userEmail} = useParams()
+    // let {auth0id} = useParams()
+    let {email} = useParams()
+    
     useEffect(()=>{
         let getUser = async ()=>{
-            let userInfo = await getMyProfile(userEmail)
+            // let userInfo = await getMyProfile(auth0id)
+
+            let userInfo = await getMyProfile(email)
             changeUserProfile(userInfo)
         }
-        if(!userProfile || userProfile.email !== userEmail){
+        if(!userProfile || userProfile.email !== email){
             getUser()
             console.log('in the getUser')
         }

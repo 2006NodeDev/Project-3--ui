@@ -26,19 +26,11 @@ const useStyles = makeStyles((theme) => ({
 export const UserDisplayComponent:FunctionComponent<IUserProfileProps> = (props) =>{
     let classes = useStyles();
     return (
-
+        <div>
           <Grid container>
-          {/* <Grid item direction="column" justify="flex-start" alignItems="flex-start">
-          <Box m={4} pt={2} pr={2}>
-    
-          </Box>
-          </Grid> */}
           <Grid item direction="column" justify="flex-end" alignItems="flex-end">
             <Box width="50%" >
             <Table className={classes.table} aria-label="simple table">
-              {/* <Grid item xs={12} justify='flex-end'>
-              <TableHead><h1>{props.user?.preferredName} {props.user?.lastName} <Link to={`/profile/edit/${(props.user)?props.user.userId : '0' }`}><EditIcon/></Link></h1></TableHead>
-              </Grid> */}
               <TableBody>
                 <TableRow>
                     <TableCell>First Name: </TableCell>
@@ -65,7 +57,7 @@ export const UserDisplayComponent:FunctionComponent<IUserProfileProps> = (props)
                     <TableCell> {props.profile.nickname}</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>Introvert?: </TableCell>
+                    <TableCell>Introvert: </TableCell>
                     <TableCell> {props.profile.introvert}</TableCell>
                 </TableRow>
                 <TableRow>
@@ -77,11 +69,11 @@ export const UserDisplayComponent:FunctionComponent<IUserProfileProps> = (props)
                     <TableCell> {props.profile.favFoods}</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>Favorite Programming Language </TableCell>
+                    <TableCell>Favorite Programming Language: </TableCell>
                     <TableCell> {props.profile.favLanguage}</TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell>Hobbies </TableCell>
+                    <TableCell>Hobbies: </TableCell>
                     <TableCell> {props.profile.hobbies}</TableCell>
                 </TableRow>
                 <TableRow>
@@ -101,5 +93,6 @@ export const UserDisplayComponent:FunctionComponent<IUserProfileProps> = (props)
             </Box>
             </Grid>
           </Grid>
+          </div>
         );
     }

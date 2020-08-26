@@ -82,7 +82,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
 
         menuItems.push(
 
-
+            <Link to={`/profile/${currentUser.userId}`} className={classes.link}><StyledMenuItem key={'myProfile'} onClick={handleClose}>My Profile</StyledMenuItem></Link>,
             <Link to='/updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
             <Link to='/editProfile' className={classes.link}><StyledMenuItem key={'editProfile'} onClick={handleClose}>Edit Profile</StyledMenuItem></Link>,
             <Link to='/createProfile' className={classes.link}><StyledMenuItem key={'createProfile'} onClick={handleClose}>Create Profile</StyledMenuItem></Link>,
