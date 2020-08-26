@@ -6,6 +6,7 @@ import { ProfileDisplayComponent } from '../AllProfileIDisplay/AllProfileDisplay
 import { Profile } from '../../models/Profile';
 import { retrieveFilteredAssociateResults } from '../../remote/user-service/retrieveFilteredAssociateResults';
 import { Associate } from '../../models/Associate';
+import { profile } from 'console';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const AllProfileComponent: FunctionComponent<any> = (props) => {
-
+    console.log(props.Profile)
     let [allAssociate, changeAllAssociate] = useState<Associate[]>([])
     const classes = useStyles();
 
@@ -77,7 +78,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
             changeAllProfile(response)
         }
 
-        if (allProfile.length === 0) {
+        if (props.Profile === undefined ) {
             getProfile()
         }
     })
@@ -91,6 +92,9 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
     let ProfileDisplays = allProfile.map((profile) => {
         return <ProfileDisplayComponent key={'profile-key-' + profile.auth0Id} profile={profile} />
     })
+    if(props.Profile !== undefined){
+      ProfileDisplays = props.Profile.map((profile: Profile) => <ProfileDisplayComponent key={'profile-key-' + profile.auth0Id} profile={profile} />)
+    }
     
     return (
         <div>

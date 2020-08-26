@@ -10,7 +10,6 @@ import { getProfilebyTrainer } from '../../remote/profile-service/getProfilebyTr
 export const AssociatebyTrainerComponent:FunctionComponent <any> = (props) =>{
 let [associateProfile, changeProfile] = useState <null | Profile> (null)
 let {trainerEmail} = useParams()
-console.log(trainerEmail)
 
 //will run after every single render
 let currentUser = useSelector((state:IState)=>{
@@ -24,10 +23,8 @@ useEffect(()=>{
         console.log(profileInfo)
         changeProfile(profileInfo)
     }
- if ( currentUser.email === trainerEmail)
- {
      getProfile()
- }
+
 
 })
 return  (
@@ -37,7 +34,7 @@ return  (
     <AllProfileComponent Profile={associateProfile} />
     :
     <div>
-    <h1> User Not Found</h1>
+    <h1>  </h1>
     </div>
     
 )
