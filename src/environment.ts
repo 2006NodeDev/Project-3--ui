@@ -1,4 +1,5 @@
 export let acBaseUrl:string
+export let pcBaseUrl:string
 
 if(process.env['NODE_ENV'] === 'production'){
     //Ingress's IP goes here
