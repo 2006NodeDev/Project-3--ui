@@ -22,8 +22,10 @@ import HomeComp from './components/HomeComp/HomeComp';
 import { ProfileComponent } from './components/ProfileComponent/ProfileComponent';
 import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
+import { Auth0Provider } from '@auth0/auth0-react';
 import { EditAssociateProfile } from './components/AssociateProfileComponent/EditAssociateProfile';
 import { CreateAssociateProfile } from './components/AssociateProfileComponent/CreateAssociateProfile';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,7 +50,6 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
-
   return (
     <div className="App">
       <Provider store={store}>
@@ -74,7 +75,12 @@ function App() {
             <HomeComp />
           </Route>
           
-          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
+          {/* <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} /> */}
+          <Auth0Provider domain="revature-net.us.auth0.com" 
+                          clientId={process.env['REACT_APP_AUTH0_CLIENT_ID']} 
+                          redirectUri={window.location.origin}>
+                          <Route path='/logout' component={LogoutComponent}/>
+          </Auth0Provider>
           <Route path='/getRole' component={GetRoleComponent} />
         </Router>
         <ToastContainer
@@ -92,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default  App;
