@@ -105,30 +105,16 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                 <Link to='/allProfile' className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
             )
         }
+
         menuItems.push(
-<<<<<<< HEAD
-            <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>
+            <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>,
         )
-    }else{
+        
+    } else{
         menuItems = [<Link to='/register' className={classes.link}><StyledMenuItem key={'register'} onClick={handleClose}>Sign Up!</StyledMenuItem></Link>]
     } 
     
     return (
-=======
-
-
-            <Link to='/updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
-            <Link to='/editProfile' className={classes.link}><StyledMenuItem key={'editProfile'} onClick={handleClose}>Edit Profile</StyledMenuItem></Link>,
-            <Link to='/createProfile' className={classes.link}><StyledMenuItem key={'createProfile'} onClick={handleClose}>Create Profile</StyledMenuItem></Link>,
-            <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
-            <Link to={`/profileInfo/${(currentUser.email)}`} className={classes.link}><StyledMenuItem key={'profileInfo'} onClick={handleClose}>My Associates</StyledMenuItem></Link>,
-            <Link to='/batchInfo' className={classes.link}><StyledMenuItem key={'batchInfo'} onClick={handleClose}>Batch Profile</StyledMenuItem></Link>,
-            <Link to='/currentBatches' className={classes.link}><StyledMenuItem key={'currentBatches'} onClick={handleClose}>Current Batches</StyledMenuItem></Link>,
-            <Link to={`/allProfile`} className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
-            <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>)
-
-    } return (
->>>>>>> 6d4fb7838c0834e921e09145a50ef477f70ff614
         <nav>
             <AppBar position="static">
                 <Toolbar className={classes.bar}>
