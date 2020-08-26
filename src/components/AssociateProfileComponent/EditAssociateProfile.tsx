@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { IState } from "../../reducers";
 
 
-export const EditAssociateProfile: FunctionComponent<any> = () => {
+export const EditAssociateProfile: FunctionComponent<any> = (props) => {
 
     let currentUser = useSelector((state: IState) => {
         return state.loginState.currentUser
@@ -107,6 +107,7 @@ export const EditAssociateProfile: FunctionComponent<any> = () => {
             studyGroup,
         }
         await editCurrentProfile(updatedProfile)
+        props.history.push('/allProfile')
     }
     return (
         <div>

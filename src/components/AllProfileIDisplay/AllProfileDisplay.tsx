@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const ProfileDisplayComponent: FunctionComponent<IProfileDisplayProps> = (props) => {
     let classes = useStyles()
-
+    console.log(props.profile.favLanguage);
+    
     return (
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={4}>

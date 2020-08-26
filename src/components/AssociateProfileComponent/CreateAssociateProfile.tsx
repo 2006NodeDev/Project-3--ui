@@ -6,7 +6,7 @@ import { IState } from "../../reducers";
 import { createProfile } from "../../remote/profile-serivce-api/createProfile";
 
 
-export const CreateAssociateProfile: FunctionComponent<any> = () => {
+export const CreateAssociateProfile: FunctionComponent<any> = (props) => {
 
     let currentUser = useSelector((state: IState) => {
         return state.loginState.currentUser
@@ -107,6 +107,7 @@ export const CreateAssociateProfile: FunctionComponent<any> = () => {
             studyGroup,
         }
         await createProfile(newProfile)
+        props.history.push('/allProfile')
     }
     return (
         <div>
