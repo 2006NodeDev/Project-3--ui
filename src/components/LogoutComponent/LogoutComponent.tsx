@@ -28,7 +28,12 @@ export const LogoutComponent:FunctionComponent<ILogoutProps> = (props) => {
         dispatch(thunk) 
         //document.cookie = `token=${null}`
         document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-        logout({ returnTo: "http://localhost:3000"})
+        let returnUrl = 'http://localhost:3000'
+        if(process.env['NODE_ENV'] === 'production'){
+            //Ingress's IP goes here
+            returnUrl='http://35.245.104.196'
+        }
+        logout({ returnTo: returnUrl})
 
     }  
 

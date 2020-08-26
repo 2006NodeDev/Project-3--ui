@@ -51,8 +51,8 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
             if (password1 !== password2){
                 toast.error('Passwords Do Not Match')
             } else { //idk why this is giving an error
-                // let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
-                // dispatch(thunk); 
+                let thunk = await updatePasswordActionMapper(currentUser.userId, password1); // replace 1 with currentUser.userId
+                dispatch(thunk); 
             }
             props.history.push('/home')
         } catch (error) {
@@ -63,6 +63,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
     return (
         (currentUser)?
         <div>
+                <form onSubmit={submitPassword}>
                 <Grid
                     container
                     item
@@ -94,6 +95,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                         <TextField 
                         type="password"
                         label="New Password" margin="normal"
+                        value={password1} onChange={updatePassword1}
                         InputProps={{ startAdornment: ( <InputAdornment position="start">
                         <LockRounded />
                         </InputAdornment>
@@ -103,6 +105,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                         <TextField 
                         type="password"
                         label="Confirm Password" margin="normal"
+                        value={password2} onChange={updatePassword2}
                         InputProps={{ startAdornment: (
                         <InputAdornment position="start">
                         <LockRounded/>
@@ -111,7 +114,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                         }}
                         />
                         <div style={{height:20}}/>
-                       <Button color="primary"
+                       <Button type="submit" color="primary"
                        variant="contained">
                         Update Password
                         </Button>
@@ -120,6 +123,7 @@ export const UpdatePasswordComponent:FunctionComponent<any> = (props) => {
                     <div/>
 
                 </Grid>
+                </form>
                 </div> 
                 : //wont work without this, but we should change it
                 <div> Loading... </div>
