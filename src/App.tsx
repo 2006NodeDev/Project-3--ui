@@ -18,8 +18,31 @@ import { AllProfileComponent } from './components/AllProfileComponent/AllProfile
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 import { ToastContainer } from 'react-toastify';
+import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
+import { makeStyles, Theme, createStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    toast: {
+      background: "#E0E0E0",
+      border: "#f26925 solid",
+      borderRadius: "5px",
+      borderTopColor: "#f26925",
+      borderTopWidth: "7px",
+      borderWidth: "0px",
+      color: "#474c55",
+      fontFamily: 'sans-serif',
+      height: "100%",
+      marginLeft: "70%",
+      marginTop: "2%",
+      padding: "20px",
+      width: "250px",
+    }
+  })
+)
 
 function App() {
+  const classes = useStyles();
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
 
   return (
@@ -30,6 +53,7 @@ function App() {
           <Redirect to='/home' />
 
           <NavBarComponent user={currentUser} />
+          
           <Route path='/updatePassword' component={UpdatePasswordComponent} />
           <Route path='/updateRole' component={UpdateRoleComponent} />
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
@@ -38,10 +62,13 @@ function App() {
           <Route path='/currentBatches' component={CurrentBatchesComponent} />
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
+          <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
+
           <Route path='/home'>
             <WelcomeComponent />
             <HomePageComponent />
           </Route>
+          
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
           <Route path='/getRole' component={GetRoleComponent} />
         </Router>
@@ -52,6 +79,8 @@ function App() {
           closeOnClick={true}
           pauseOnHover={true}
           draggable={true}
+          closeButton={false}
+          className={classes.toast}
         />
       </Provider>
     </div>

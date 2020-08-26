@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState, useEffect, SyntheticEvent } from 'react';
 import { makeStyles, Container, Grid, Paper, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
-import { Associate } from '../../models/Associate';
 import clsx from 'clsx';
 import { getAllAssociates } from '../../remote/user-service/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent';
 import { retrieveFilteredResults } from '../../remote/user-service/retrieveFilteredResults';
+import { Associate } from '../../models/Associate';
 
 
 const useStyles = makeStyles((theme) => ({
