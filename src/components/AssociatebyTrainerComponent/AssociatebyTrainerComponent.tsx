@@ -20,22 +20,23 @@ let currentUser = useSelector((state:IState)=>{
 useEffect(()=>{
     let getProfile = async()=>{
         let profileInfo =  await getProfilebyTrainer(trainerEmail)
+        console.log(profileInfo)
         changeProfile(profileInfo)
     }
- if ( currentUser.email !== trainerEmail)
- {
      getProfile()
- }
+
 
 })
 return  (
+    
     (associateProfile)?
 
     <AllProfileComponent Profile={associateProfile} />
     :
     <div>
-    <h1> User Not Found</h1>
+    <h1>  </h1>
     </div>
+    
 )
 }
 

@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useState, SyntheticEvent, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import { loginActionMapper, loginErrorReset } from '../../action-mappers/login-action-mapper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, TextField, Button, Theme, Container, createMuiTheme } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import { makeStyles, createStyles, ThemeProvider } from '@material-ui/styles';
 import { deepOrange } from '@material-ui/core/colors';
 import { IState } from '../../reducers';
+import { loginActionMapper, loginErrorReset } from '../../action-mappers/login-action-mapper';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -98,7 +98,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                         <img className={classes.logo} src="https://revature.com/wp-content/uploads/2017/08/rev-logo-2.png" />
                         <br /><br />
                         <Typography variant="h6" className={classes.font}>
-                            Login with registered email
+                            Welcome to Associate Companion.
                     </Typography>
                         <form autoComplete="off" onSubmit={loginSubmit} noValidate className={classes.form}>
                             <ThemeProvider theme={theme}>

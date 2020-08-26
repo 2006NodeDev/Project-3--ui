@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontFamily: "Impact"
         },
         link: {
-            color:'#474C55', 
+            color: '#474C55',
             fontFamily: "Impact",
             textDecoration: "none",
             '&:hover': {
@@ -72,6 +72,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
     const currentUser = useSelector((state: IState) => {
         return state.loginState.currentUser
     })
+    
 
     let menuItems = []
     //do we need to specify that we only want this if there is no current user?
@@ -80,14 +81,16 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
     if (currentUser) {
 
         menuItems.push(
-            <Link to='updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
-//             <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
+
+
+            <Link to='/updatePassword' className={classes.link}><StyledMenuItem key={'updatePassword'} onClick={handleClose}>Update Password </StyledMenuItem></Link>,
+            <Link to='/editProfile' className={classes.link}><StyledMenuItem key={'editProfile'} onClick={handleClose}>Edit Profile</StyledMenuItem></Link>,
+            <Link to='/createProfile' className={classes.link}><StyledMenuItem key={'createProfile'} onClick={handleClose}>Create Profile</StyledMenuItem></Link>,
             <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
-            <Link to='/profileInfo' className={classes.link}><StyledMenuItem key={'profileInfo'} onClick={handleClose}>Associate Info By Trainer</StyledMenuItem></Link>,
-            <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
+            <Link to={`/profileInfo/${(currentUser.email)}`} className={classes.link}><StyledMenuItem key={'profileInfo'} onClick={handleClose}>My Associates</StyledMenuItem></Link>,
             <Link to='/batchInfo' className={classes.link}><StyledMenuItem key={'batchInfo'} onClick={handleClose}>Batch Profile</StyledMenuItem></Link>,
             <Link to='/currentBatches' className={classes.link}><StyledMenuItem key={'currentBatches'} onClick={handleClose}>Current Batches</StyledMenuItem></Link>,
-            <Link to='/allProfile' className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
+            <Link to={`/allProfile`} className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
             <Link to='/logout' className={classes.link}><StyledMenuItem key={'logout'} onClick={handleClose}>Logout</StyledMenuItem></Link>)
 
     } return (
@@ -106,7 +109,7 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                         onClose={handleClose}>
                         {menuItems}
                     </Menu>
-                    <IconButton component={Link} to="/login">
+                    <IconButton component={Link} to="/">
                         <PersonIcon />
                     </IconButton>
                 </Toolbar>

@@ -3,16 +3,14 @@ import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
 import { TextField, Button, makeStyles, Theme, createStyles, createMuiTheme, Container, Grid, Typography, ThemeProvider } from "@material-ui/core"
-
-import { useDispatch, useSelector } from "react-redux"
-import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
-import { deepOrange } from "@material-ui/core/colors"
+import { toast } from "react-toastify"
 import { submitSignUpRemote } from "../../remote/user-service/newUserSignup"
-//import { IState } from "../../reducers"
-
+import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
+import { deepOrange } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
+
+<!--     createStyles({
         logo: {
             maxHeight: 100
         },
@@ -40,7 +38,49 @@ const useStyles = makeStyles((theme: Theme) =>
             color: "#f26925",
             fontWeight: 'bold',
         },
-    }),
+    }), -->
+
+  createStyles({
+    form:{
+     fontFamily:'arial',
+     color:'#000000',
+     width: '100%',
+     marginTop: 10,
+    },
+    h2:{
+    fontFamily:'arial'
+    },
+    Button: {
+        backgroundColor:'#F26926',
+        color:'#ffffff',
+        minWidth: 160,
+        height:55,
+        borderRadius: 25
+        
+    },
+    component: {
+        marginTop: 50,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    button: {
+        color: "#474c55",
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontFamily: 'sans-serif'
+    },
+    font: {
+        fontFamily: 'sans-serif',
+        fontWeight: 'bold'
+    },
+    links: {
+        color: "#f26925",
+        fontWeight: 'bold',
+    },
+  
+  }),
+
 );
 
 const theme = createMuiTheme({
@@ -113,6 +153,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
             let thunk = signUpActionMapper(email, password, {user_metadata:{preferredName, lastName}}, connection);
             dispatch(thunk);
         } 
+
     } 
     /*
     useEffect(()=>{
@@ -123,52 +164,78 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
         }
     })
     */
-    return (
-        <Container component="main" maxWidth="xs">
-        <div className={classes.component}>
-            <Grid container spacing={1}>
-                <Grid item>
-                    <img className={classes.logo} src="https://revature.com/wp-content/uploads/2017/08/rev-logo-2.png" />
-                    <br /><br />
-                    <Typography variant="h6" className={classes.font}>
-                        Sign Up
-                </Typography>
-                <form onSubmit={submitUser} className={classes.form}>
-                <ThemeProvider theme={theme}>
-                     <TextField variant="outlined" margin="normal"
-                                    fullWidth
-                                    required
-                                    id="standard-basic" label="Preferred Name" value={preferredName} onChange={updatePreferredName} />
+//     return (
+//         <Container component="main" maxWidth="xs">
+//         <div className={classes.component}>
+//             <Grid container spacing={1}>
+//                 <Grid item>
+//                     <img className={classes.logo} src="https://revature.com/wp-content/uploads/2017/08/rev-logo-2.png" />
+//                     <br /><br />
+//                     <Typography variant="h6" className={classes.font}>
+//                         Sign Up
+//                 </Typography>
+//                 <form onSubmit={submitUser} className={classes.form}>
+//                 <ThemeProvider theme={theme}>
+//                      <TextField variant="outlined" margin="normal"
+//                                     fullWidth
+//                                     required
+//                                     id="standard-basic" label="Preferred Name" value={preferredName} onChange={updatePreferredName} />
                     
-                     <TextField variant="outlined" margin="normal"
-                                    fullWidth
-                                    required id="standard-basic" label="Lastname" value={lastName} onChange={updateLastName}/>
+//                      <TextField variant="outlined" margin="normal"
+//                                     fullWidth
+//                                     required id="standard-basic" label="Lastname" value={lastName} onChange={updateLastName}/>
                    
-                    <TextField variant="outlined"
-                                    margin="normal"
-                                    fullWidth
-                                    required
-                                    id="username"
-                                    label="Email"
-                                    name="email"
-                                    defaultValue="@mock.com"
-                                    // value={username}
-                                     onChange={updateEmail} />
+//                     <TextField variant="outlined"
+//                                     margin="normal"
+//                                     fullWidth
+//                                     required
+//                                     id="username"
+//                                     label="Email"
+//                                     name="email"
+//                                     defaultValue="@mock.com"
+//                                     // value={username}
+//                                      onChange={updateEmail} />
                   
-                    <TextField variant="outlined" margin="normal"
-                                    fullWidth
-                                    required id="standard-basic" type='password' label="Password" value={password} onChange={updatePassword}/>
+//                     <TextField variant="outlined" margin="normal"
+//                                     fullWidth
+//                                     required id="standard-basic" type='password' label="Password" value={password} onChange={updatePassword}/>
                   
-                    <TextField variant="outlined" margin="normal"
-                                    fullWidth
-                                    required id="standard-basic" type='password' label="Confirm" value={confirmPassword} onChange={updateConfirmPassword}/>
-                    <br/>
-                    <Button variant="contained" type='submit' className={classes.button} >Submit</Button>
-                    </ThemeProvider>
-                 </form>
-                </Grid>
-            </Grid>
-            </div>
-        </Container>
+//                     <TextField variant="outlined" margin="normal"
+//                                     fullWidth
+//                                     required id="standard-basic" type='password' label="Confirm" value={confirmPassword} onChange={updateConfirmPassword}/>
+//                     <br/>
+//                     <Button variant="contained" type='submit' className={classes.button} >Submit</Button>
+//                     </ThemeProvider>
+//                  </form>
+//                 </Grid>
+//             </Grid>
+//             </div>
+//         </Container>
+
+        props.history.push('/login')
+    }
+
+    return (
+        <div>
+            
+            <h2 className = {classes.h2}>Associate Companion Sign Up</h2>
+            <form onSubmit={submitUser} className ={classes.form}>  
+            <ThemeProvider theme={theme}>
+                <TextField id="outlined-basic" variant="outlined" label="Preferred Name" value={preferredName} onChange={updatePreferredName} /><br /><br />
+                {/* <br/> */}
+                <TextField id="outlined-basic" variant="outlined" label="Last Name" value={lastName} onChange={updateLastName}/><br /><br />
+                {/* <br/> */}
+                <TextField id="outlined-basic" variant="outlined" label="Email" value={email} onChange={updateEmail} /><br /><br />
+                {/* <br/> */}
+                <TextField id="outlined-basic" variant="outlined" type='password' label="Password" value={password} onChange={updatePassword}/><br /> <br />
+                {/* <br/> */}
+                <TextField id="outlined-basic" variant="outlined" type='password' label="Confirm Password" value={confirmPassword} onChange={updateConfirmPassword}/> <br />
+                <br/>
+                </ThemeProvider>
+                <Button className ={classes.Button}  variant="contained" type='submit'>Sign Up</Button>
+                
+            </form>
+        </div>
+
     )
 }
