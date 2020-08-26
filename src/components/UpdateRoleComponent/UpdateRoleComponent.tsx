@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { updateRoleActionMapper } from '../../action-mappers/updateRole-action-mapper';
 import React, { FunctionComponent, useState, SyntheticEvent } from 'react'
 import { createStyles, makeStyles, Theme, InputLabel, Select, FormControl, Container, createMuiTheme, ThemeProvider, Paper } from '@material-ui/core';
 import { IState } from '../../reducers';
 import { deepOrange } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/styles';
+import { updateRoleActionMapper } from '../../action-mappers/updateRole-action-mapper';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
