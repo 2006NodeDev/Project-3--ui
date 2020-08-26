@@ -78,7 +78,7 @@ export const UserDisplayComponent:FunctionComponent<IUserProfileProps> = (props)
                 </TableRow>
                 <TableRow>
                     <TableCell>Favorite Programming Language </TableCell>
-                    <TableCell> {props.profile.favLangauge}</TableCell>
+                    <TableCell> {props.profile.favLanguage}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Hobbies </TableCell>
