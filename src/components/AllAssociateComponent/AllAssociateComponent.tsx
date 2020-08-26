@@ -3,7 +3,7 @@ import { makeStyles, Container, Grid, Paper, FormControl, InputLabel, Select, Me
 import clsx from 'clsx';
 import { getAllAssociates } from '../../remote/user-service/getAllAssociate';
 import { AssociateDisplayComponent } from '../AssociateDisplayComponent/AssociateDisplayComponent';
-import { retrieveFilteredResults } from '../../remote/user-service/retrieveFilteredResults';
+import { retrieveFilteredAssociateResults } from '../../remote/user-service/retrieveFilteredAssociateResults';
 import { Associate } from '../../models/Associate';
 
 
@@ -85,7 +85,7 @@ export const AllAssociatesComponent: FunctionComponent<any> = (props) => {
     const applyFilter = async (e: SyntheticEvent) => {
       e.preventDefault()
 
-      let filteredResults = await retrieveFilteredResults(batchSkill, batchQuarter, batchYear)
+      let filteredResults = await retrieveFilteredAssociateResults(batchSkill, batchQuarter, batchYear)
       changeAllAssociate(filteredResults)
   }
     
