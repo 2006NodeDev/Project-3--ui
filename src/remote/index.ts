@@ -10,3 +10,9 @@ export const userServiceBaseClient = axios.create({
         'Content-Type':'application/json'
     },
 })
+export const profileServiceBaseClient = axios.create({
+    baseURL: acBaseUrl,
+    headers:{
+        'Content-Type':'application/json'
+    },
+})
