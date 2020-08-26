@@ -8,6 +8,7 @@ import { Button, } from "@material-ui/core";
 import { IState } from "../../reducers";
 import { prototype } from "events";
 import { store } from "../../store";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -20,11 +21,16 @@ interface ILogoutProps extends RouteComponentProps {
 export const LogoutComponent:FunctionComponent<ILogoutProps> = (props) => {
   
     let dispatch = useDispatch()
+    const { logout } = useAuth0();
     
     const logoutSubmit = async () => {
         let thunk = await loginActionMapper('logout', 'logout')
         dispatch(thunk) 
-    } 
+        //document.cookie = `token=${null}`
+        document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+        logout({ returnTo: "http://localhost:3000"})
+
+    }  
 
     logoutSubmit()
     let currentUser = useSelector((state:IState)=>{

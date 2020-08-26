@@ -20,6 +20,7 @@ import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent
 import { ToastContainer } from 'react-toastify';
 import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,11 +45,6 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> 34cf66166e9899f2ef94b2c9676aa33472642a1a
   return (
     <div className="App">
       <Provider store={store}>
@@ -61,13 +57,6 @@ function App() {
           <Route path='/updatePassword' component={UpdatePasswordComponent} />
           <Route path='/updateRole' component={UpdateRoleComponent} />
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
-<<<<<<< HEAD
-          <Route path='/register' component={NewUserComponent}/>
-          <Route path='/allAssociate' component={AllAssociatesComponent}/>
-          <Route path='/currentBatches' component={CurrentBatchesComponent}/>
-          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props}/>)} />
-          <Route path='/getRole' component={GetRoleComponent}/>
-=======
           <Route path='/register' component={NewUserComponent} />
           <Route path='/allAssociate' component={AllAssociatesComponent} />
           <Route path='/currentBatches' component={CurrentBatchesComponent} />
@@ -80,9 +69,13 @@ function App() {
             <HomePageComponent />
           </Route>
           
-          <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
+          {/* <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} /> */}
+          <Auth0Provider domain="revature-net.us.auth0.com" 
+                          clientId={process.env['REACT_APP_AUTH0_CLIENT_ID']} 
+                          redirectUri={window.location.origin}>
+                          <Route path='/logout' component={LogoutComponent}/>
+          </Auth0Provider>
           <Route path='/getRole' component={GetRoleComponent} />
->>>>>>> 34cf66166e9899f2ef94b2c9676aa33472642a1a
         </Router>
         <ToastContainer
           position="bottom-right"
