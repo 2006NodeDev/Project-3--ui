@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { loginRemote } from "../remote/login";
-import { type } from "os";
-
-=======
 import { loginRemote } from "../remote/user-service/login";
 import { toast } from "react-toastify";
->>>>>>> 34cf66166e9899f2ef94b2c9676aa33472642a1a
 
 export const loginTypes = {
     SUCCESSFUL_LOGIN:'SUCCESSFULLY_LOGGED_IN',

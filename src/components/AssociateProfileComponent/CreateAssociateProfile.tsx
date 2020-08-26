@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, SyntheticEvent } from "react";
-import { FormControl, TextField, FormLabel, RadioGroup, FormControlLabel, Radio, Button } from '@material-ui/core';
+import { FormControl, TextField, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Switch } from '@material-ui/core';
 import { Profile } from "../../models/Profile";
 import { useSelector } from "react-redux";
 import { IState } from "../../reducers";
@@ -28,8 +28,8 @@ export const CreateAssociateProfile: FunctionComponent<any> = (props) => {
     const [degree, changeDegree] = useState('')
     const [favLanguage, changeFavLanguage] = useState('')
     const [relevantSkills, changeRelevantSkills] = useState('')
-    // const [introvert, changeIntrovert] = useState(Boolean)
-    // const [studyGroup, changeStudyGroup] = useState(Boolean)
+    const [introvert, changeIntrovert] = useState(Boolean)
+    const [studyGroup, changeStudyGroup] = useState(Boolean)
 
 
     const updateFirstName = (event: any) => {
@@ -72,22 +72,22 @@ export const CreateAssociateProfile: FunctionComponent<any> = (props) => {
         event.preventDefault()
         changeRelevantSkills(event.currentTarget.value)
     }
-    // const updateIntrovert = (event: any) => {
-    //     event.preventDefault()
-    //     changeIntrovert(event.currentTarget.value)
-    // }
-    // const updateStudyGroup = (event: any) => {
-    //     event.preventDefault()
-    //     changeStudyGroup(event.currentTarget.value)
-    // }
+    const updateIntrovert = (event: any) => {
+        event.preventDefault()
+        changeIntrovert(event.currentTarget.value)
+    }
+    const updateStudyGroup = (event: any) => {
+        event.preventDefault()
+        changeStudyGroup(event.currentTarget.value)
+    }
     const registerSubmit = async (e: SyntheticEvent) => {
         e.preventDefault()
 
         let auth0Id = currentUser.userId
         let email = currentUser.email
         let batchId = "TR-1255"
-        let introvert = true
-        let studyGroup = false
+        // let introvert = true
+        // let studyGroup = false
 
         let newProfile: Profile = {
             firstName,
@@ -123,20 +123,14 @@ export const CreateAssociateProfile: FunctionComponent<any> = (props) => {
                 <TextField id="degree" label="Degree:" value={degree} onChange={updateDegree} /><br />
                 <TextField id="favLanguage" label="Favorite Language" value={favLanguage} onChange={updateFavLanguage} /><br />
                 <TextField id="relevantSkills" label="Relevant Skills:" value={relevantSkills} onChange={updateRelevantSkills} /><br /><br />
-                {/* <FormControl component="fieldset">
-                    <FormLabel component="legend">Personality Type:</FormLabel>
-                    <RadioGroup aria-label="social" name="social" value={introvert} onChange={handleChange}>
-                        <FormControlLabel value={true} control={<Radio />} label="Introvert" />
-                        <FormControlLabel value={false} control={<Radio />} label="Extrovert" />
-                    </RadioGroup>
-                </FormControl><br /><br />
-                <FormControl component="fieldset">
-                    <FormLabel component="legend">Looking for a Study Group:</FormLabel>
-                    <RadioGroup aria-label="studyGroup" name="studyGroup" value={studyGroup} onChange={handleChange}>
-                        <FormControlLabel value={true} control={<Radio />} label="True" />
-                        <FormControlLabel value={false} control={<Radio />} label="False" />
-                    </RadioGroup>
-                </FormControl><br /> */}
+                <p>Personality Type:<br/>Extrovert&nbsp;&nbsp;
+           <FormControlLabel
+                  control={<Switch checked={introvert} onChange={updateIntrovert} name="introvert" color="default"/>}
+                  label="Introvert" /></p>
+            <p>Looking for a study group?<br/>No&nbsp;&nbsp; 
+            <FormControlLabel
+                  control={<Switch checked={studyGroup} onChange={updateStudyGroup} name="studyGroup" color="default"/>}
+                  label="Yes" /></p>
                 <Button type="submit" variant="contained">
                     Submit
             </Button>
