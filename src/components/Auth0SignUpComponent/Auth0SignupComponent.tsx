@@ -1,39 +1,65 @@
 import { FunctionComponent, useState, SyntheticEvent } from "react"
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { toast } from "react-toastify"
 import { User } from "@auth0/auth0-react/dist/auth-state"
 import React from "react"
 import { TextField, Button } from "@material-ui/core"
 import { submitSignUpRemote } from "../../remote/user-service/newUserSignup"
 import { useDispatch } from "react-redux"
-import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper";
+import { signUpActionMapper } from "../../action-mappers/signup-register-action-mapper"
+import { deepOrange } from "@material-ui/core/colors";
 
 
-
-
-
-  
+ 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     form:{
      fontFamily:'arial',
-     color:'#000000'
+     color:'#000000',
+     width: '100%',
+     marginTop: 10,
     },
     h2:{
     fontFamily:'arial'
     },
     Button: {
-        backgroundColor:'#FF4500',
+        backgroundColor:'#F26926',
         color:'#ffffff',
         minWidth: 160,
         height:55,
         borderRadius: 25
         
-    }
+    },
+    component: {
+        marginTop: 50,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    button: {
+        color: "#474c55",
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontFamily: 'sans-serif'
+    },
+    font: {
+        fontFamily: 'sans-serif',
+        fontWeight: 'bold'
+    },
+    links: {
+        color: "#f26925",
+        fontWeight: 'bold',
+    },
   
   }),
 );
+
+const theme = createMuiTheme({
+    palette: {
+        primary: deepOrange,
+    },
+});
 
 export const NewUserComponent:FunctionComponent<any> = (props) => {
   
@@ -95,23 +121,23 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
         props.history.push('/login')
     }
 
-
     return (
         <div>
             
             <h2 className = {classes.h2}>Associate Companion Sign Up</h2>
             <form onSubmit={submitUser} className ={classes.form}>  
-           
+            <ThemeProvider theme={theme}>
                 <TextField id="outlined-basic" variant="outlined" label="Preferred Name" value={preferredName} onChange={updatePreferredName} /><br /><br />
-                <br/>
+                {/* <br/> */}
                 <TextField id="outlined-basic" variant="outlined" label="Last Name" value={lastName} onChange={updateLastName}/><br /><br />
-                <br/>
+                {/* <br/> */}
                 <TextField id="outlined-basic" variant="outlined" label="Email" value={email} onChange={updateEmail} /><br /><br />
-                <br/>
+                {/* <br/> */}
                 <TextField id="outlined-basic" variant="outlined" type='password' label="Password" value={password} onChange={updatePassword}/><br /> <br />
-                <br/>
+                {/* <br/> */}
                 <TextField id="outlined-basic" variant="outlined" type='password' label="Confirm Password" value={confirmPassword} onChange={updateConfirmPassword}/> <br />
                 <br/>
+                </ThemeProvider>
                 <Button className ={classes.Button}  variant="contained" type='submit'>Sign Up</Button>
                 
             </form>

@@ -98,7 +98,7 @@ export const LoginComponent: FunctionComponent<any> = (props) => {
                         <img className={classes.logo} src="https://revature.com/wp-content/uploads/2017/08/rev-logo-2.png" />
                         <br /><br />
                         <Typography variant="h6" className={classes.font}>
-                            Login with registered email
+                            Welcome to Associate Companion.
                     </Typography>
                         <form autoComplete="off" onSubmit={loginSubmit} noValidate className={classes.form}>
                             <ThemeProvider theme={theme}>
