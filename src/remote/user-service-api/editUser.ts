@@ -1,6 +1,6 @@
 import { Profile } from "../../models/Profile";
 import { userServiceClient } from ".";
-import { Associate } from "../../models/associate";
+import { Associate } from "../../models/Associate";
 
 
 export const editCurrentUser = async (editUser:Associate) => {
