@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { makeStyles, Theme, createStyles, Paper, Typography } from '@material-ui/core';
-import { Associate } from '../../models/associate';
+import { Associate } from '../../models/Associate';
+import { UpdateRoleComponent } from '../UpdateRoleComponent/UpdateRoleComponent';
 
 
 
@@ -36,6 +37,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const AssociateDisplayComponent: FunctionComponent<IAssociateDisplayProps> = (props) => {
     let classes = useStyles()
+
+    
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={4}>
@@ -54,7 +58,9 @@ export const AssociateDisplayComponent: FunctionComponent<IAssociateDisplayProps
                 <Typography className={classes.typography} variant='h4'>
                     flag : {props.associate.flag}
                 </Typography>
+
             </Paper>
+            <UpdateRoleComponent key={'associate-key-' + props.associate.salesforceId} associate={props.associate} {...props}/>
         </div >
     )
 }
