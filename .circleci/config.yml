@@ -18,15 +18,10 @@ jobs:
           name: Build
           command: |
             npm run build
-      - run: 
-          working_directory: ~/project
-          name: Test
-          command: |
-            npm test
       - slack/status:
           mentions: 'CHANNEL'
-          success_message: 'The Project-3-UI MASTER code is ready for you to pull'
-          failure_message: 'You should probably tell Tanique that the Project-3-UI MASTER code failed'
+          success_message: 'The Project-3-UI DEVELOPMENT code is ready for you to pull'
+          failure_message: 'You should probably tell Tanique that the Project-3-UI DEVELOPMENT code failed'
 workflows:
     build-and-test:
       jobs:
