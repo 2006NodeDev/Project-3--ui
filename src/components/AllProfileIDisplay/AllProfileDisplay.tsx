@@ -68,7 +68,7 @@ export const ProfileDisplayComponent: FunctionComponent<IProfileDisplayProps> = 
                     Degree in: {props.profile.degree}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    Favorite coding Language: {props.profile.favLangauge}
+                    Favorite coding Language: {props.profile.favLanguage}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
                    Is skilled in {props.profile.relevantSkills}
