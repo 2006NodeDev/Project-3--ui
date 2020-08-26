@@ -19,6 +19,7 @@ import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 import { ToastContainer } from 'react-toastify';
 import {AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
+import { AssociateProfileComponent } from './components/AssociateProfileComponent/AssociateProfileComponent';
 
 function App() {
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
@@ -32,6 +33,7 @@ function App() {
 
           <NavBarComponent user={currentUser} />
           <Route path='/updatePassword' component={UpdatePasswordComponent} />
+          <Route path='/editProfile' component={AssociateProfileComponent}/>
           <Route path='/updateRole' component={UpdateRoleComponent} />
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
           <Route path='/register' component={NewUserComponent} />

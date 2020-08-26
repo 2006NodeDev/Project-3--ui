@@ -72,7 +72,7 @@ export const ProfileDisplayComponent: FunctionComponent<IProfileDisplayProps> = 
                 </Typography>
 
                 <Typography className={classes.typography} variant='h4'>
-                    favLanguage : {props.profile.favLangauge}
+                    favLanguage : {props.profile.favLanguage}
                 </Typography>
 
                 <Typography className={classes.typography} variant='h4'>
