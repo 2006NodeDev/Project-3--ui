@@ -107,7 +107,7 @@ export const CreateAssociateProfile: FunctionComponent<any> = (props) => {
             studyGroup,
         }
         await createProfile(newProfile)
-        props.history.push('/')
+        props.history.push('/allProfile')
     }
     return (
         <div>
