@@ -118,7 +118,7 @@ export const NewUserComponent:FunctionComponent<any> = (props) => {
                         <br /><br /><br />
             <Typography variant="h6" className={classes.font}>
                             Welcome to Associate Companion 
-                    </Typography>{/*<br /> */}
+                    </Typography>{/*<br / */}
                     <Typography variant="h6" className={classes.font}>
                             Sign Up Here!!
                     </Typography>
