@@ -93,16 +93,16 @@ export const NavBarComponent: FunctionComponent<any> = (props) => {
                 // <Link to='/associateInfo' className={classes.link}><StyledMenuItem key={'associateInfo'} onClick={handleClose}>Associate Information</StyledMenuItem></Link>,
                 <Link to='/batchInfo' className={classes.link}><StyledMenuItem key={'batchInfo'} onClick={handleClose}>Batch Profile</StyledMenuItem></Link>,
             )
-        }
-        else if (currentRole.role == "Trainer"){
-            menuItems.push(
-                <Link to='/profileInfo' className={classes.link}><StyledMenuItem key={'profileInfo'} onClick={handleClose}>Associate Info By Trainer</StyledMenuItem></Link>,
-            )
-        } else if (currentRole.role == "Admin"){
+        }else if (currentRole.role == "Admin"){
             menuItems.push(
                 // <Link to='/updateRole' className={classes.link}><StyledMenuItem key={'updateRole'} onClick={handleClose}> Update Role</StyledMenuItem></Link>,
                 <Link to='/allAssociate' className={classes.link}><StyledMenuItem key={'allAssociate'} onClick={handleClose}>All Associates</StyledMenuItem></Link>,
                 <Link to='/allProfile' className={classes.link}><StyledMenuItem key={'allProfile'} onClick={handleClose}>Profile Service</StyledMenuItem></Link>,
+            )
+        }
+        else if (currentRole.role == "Trainer"){
+            menuItems.push(
+                <Link to={`profileInfo/${currentUser.email}`} className={classes.link}><StyledMenuItem key={'profileInfo'} onClick={handleClose}>Associate Info By Trainer</StyledMenuItem></Link>,
             )
         }
 
