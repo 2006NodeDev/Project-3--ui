@@ -1,7 +1,7 @@
 import { userServiceBaseClient } from '../index'
 import { joinResponses } from '../../utils/joinResponses'
 
-export const retrieveFilteredResults = async (batchSkill:string, batchQuarter:string, batchYear:string) => {
+export const retrieveFilteredAssociateResults = async (batchSkill:string, batchQuarter:string, batchYear:string) => {
     try{
 
         let skillResponse = await userServiceBaseClient.get(`user-service/associates/skill/${batchSkill}`)

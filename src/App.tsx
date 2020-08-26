@@ -18,6 +18,8 @@ import { AllProfileComponent } from './components/AllProfileComponent/AllProfile
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 import { ToastContainer } from 'react-toastify';
+import HomeComp from './components/HomeComp/HomeComp';
+import { ProfileComponent } from './components/ProfileComponent/ProfileComponent';
 import { AssociatebyTrainerComponent } from './components/AssociatebyTrainerComponent/AssociatebyTrainerComponent';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import { EditAssociateProfile } from './components/AssociateProfileComponent/EditAssociateProfile';
@@ -52,7 +54,7 @@ function App() {
       <Provider store={store}>
         <Router>
 
-          <Redirect to='/home' />
+          {/* <Redirect to='/home' /> */}
 
           <NavBarComponent user={currentUser} />
           
@@ -60,17 +62,16 @@ function App() {
           <Route path='/editProfile' component={EditAssociateProfile} />
           <Route path='/createProfile' component={CreateAssociateProfile}/>
           <Route path='/updateRole' component={UpdateRoleComponent} />
-          <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
+          <Route exact path='/' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
           <Route path='/register' component={NewUserComponent} />
           <Route path='/allAssociate' component={AllAssociatesComponent} />
           <Route path='/currentBatches' component={CurrentBatchesComponent} />
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
+          <Route exact path='/profile/:userId' component={ProfileComponent} user={currentUser}/>
           <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
-
           <Route path='/home'>
-            <WelcomeComponent />
-            <HomePageComponent />
+            <HomeComp />
           </Route>
           
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
