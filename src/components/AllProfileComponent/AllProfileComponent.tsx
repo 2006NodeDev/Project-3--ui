@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { getAllProfile } from '../../remote/profile-service/getAllProfile';
 import { ProfileDisplayComponent } from '../AllProfileIDisplay/AllProfileDisplay';
 import { Profile } from '../../models/Profile';
-import { retrieveFilteredAssociateResults } from '../../remote/user-service/retrieveFilteredAssociateResults';
+import { retrieveFilteredProfileResults } from '../../remote/profile-service/retrieveFilteredProfileResults';
 import { Associate } from '../../models/Associate';
 import { profile } from 'console';
 
@@ -85,7 +85,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
     const applyFilter = async (e: SyntheticEvent) => {
         e.preventDefault()
   
-        let filteredResults = await retrieveFilteredAssociateResults(batchSkill, batchQuarter, batchYear)
+        let filteredResults = await retrieveFilteredProfileResults(batchSkill, batchQuarter, batchYear)
         changeAllAssociate(filteredResults)
     }
 
@@ -95,10 +95,22 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
     if(props.Profile !== undefined){
       ProfileDisplays = props.Profile.map((profile: Profile) => <ProfileDisplayComponent key={'profile-key-' + profile.auth0Id} profile={profile} />)
     }
-    
     return (
+      (props.Profile)?
         <div>
-                        <div>
+            <Container maxWidth="lg" className={classes.container}>
+                <Grid container spacing={6}>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={fixedHeightPaper}>
+                            {ProfileDisplays}
+                        </Paper>
+                    </Grid>
+                </Grid>
+            </Container>
+        </div>
+        :
+        <div>
+        <div>
       <FormControl className={classes.formControl}>
         <InputLabel id="skill-selector-label">Tech</InputLabel>
         <Select
@@ -115,6 +127,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
           <MenuItem value={'Java%20Devops'}>Java using Devops Practices</MenuItem>
           <MenuItem value={'Java%20React'}>Java using React</MenuItem>
           <MenuItem value={'Big%20Data'}>Big Data</MenuItem>
+          <MenuItem value={''}>No Filter</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
@@ -130,6 +143,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
           <MenuItem value={'2018'}>2018</MenuItem>
           <MenuItem value={'2017'}>2017</MenuItem>
           <MenuItem value={'2016'}>2016</MenuItem>
+          <MenuItem value={''}>No Filter</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
@@ -144,6 +158,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
           <MenuItem value={'2'}>Q2</MenuItem>
           <MenuItem value={'3'}>Q3</MenuItem>
           <MenuItem value={'4'}>Q4</MenuItem>
+          <MenuItem value={''}>No Filter</MenuItem>
 
         </Select>
       </FormControl>
@@ -154,6 +169,7 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
       </Container>
       
     </div>
+    <div>
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={6}>
                     <Grid item xs={12} md={12} lg={12}>
@@ -164,5 +180,6 @@ export const AllProfileComponent: FunctionComponent<any> = (props) => {
                 </Grid>
             </Container>
         </div>
+    </div>
     )
 }
