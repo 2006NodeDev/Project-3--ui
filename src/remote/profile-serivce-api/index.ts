@@ -1,10 +1,13 @@
 import axios from 'axios'
-import { pcBaseUrl } from '../../environment'
+
+//an optional env for host address or localhost default
+//this is the caliber IP (?)
+let baseURL = 'http://localhost:2007/profile-service/profiles'
 
 export const profileServiceClient = axios.create({
-    baseURL: pcBaseUrl,
-    headers: {
-        'Content-Type': 'application/json'
+    baseURL,
+    headers:{
+        'Content-Type': 'application/json',
+    //     'Referer' : 'website.js-army.com'
     },
-    //withCredentials:true
 })
