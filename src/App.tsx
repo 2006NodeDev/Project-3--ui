@@ -36,7 +36,7 @@ function App() {
           <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
           <Route path='/register' component={NewUserComponent} />
           <Route path='/allAssociate' component={AllAssociatesComponent} />
-          <Route path='/currentBatches' component={CurrentBatchesComponent} />
+          {/*<Route path='/currentBatches' component={CurrentBatchesComponent} />  not working anymore */}
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
           <Route path='/profileInfo/:trainerEmail' component={AssociatebyTrainerComponent} />
