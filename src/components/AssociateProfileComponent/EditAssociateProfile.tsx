@@ -111,7 +111,7 @@ export const EditAssociateProfile: FunctionComponent<any> = (props) => {
     }
     return (
         <div>
-            <p>Update preferences your preferences by filling out and submitting the form below.</p>
+            <p>Update your profile by filling out and submitting the form below.</p>
             <form onSubmit={registerSubmit}>
                 <TextField id="firstName" label="First Name:" value={firstName} onChange={updateFirstName} /><br />
                 <TextField id="lastName" label="Last Name:" value={lastName} onChange={updateLastName} /><br />
