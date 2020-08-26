@@ -1,9 +1,9 @@
 export let acBaseUrl:string
 
 if(process.env['NODE_ENV'] === 'production'){
-    //domain name goes here
-    acBaseUrl = ''
+    //Ingress's IP goes here
+    acBaseUrl='http://35.245.104.196'
 }else {
-    //will need to adjust for nginx/multiple servers
-    acBaseUrl = 'http://localhost:2006'
+    //adjusted for nginx/multiple servers
+    acBaseUrl='http://localhost:80'
 }
