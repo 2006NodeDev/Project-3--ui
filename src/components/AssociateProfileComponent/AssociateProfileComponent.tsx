@@ -99,14 +99,15 @@ export const AssociateProfileComponent:FunctionComponent<any> = (props) => {
             <TextField id="favLanguage" label="Favorite Language" onChange={updateFavLanguage}/><br/>
             <TextField id="relevantSkills" label="Relevant skills:"  onChange={updateRelevantSkills}/><br/><br/>
           
-           <p>Personality Type:<br/>Extrovert 
+           <p>Personality Type:<br/>Extrovert&nbsp;&nbsp;
            <FormControlLabel
-                  control={<Switch checked={introvert} onChange={updateIntrovert} name="introvert" />}
+                  control={<Switch checked={introvert} onChange={updateIntrovert} name="introvert" color="default"/>}
                   label="Introvert" /></p>
-            <p>Looking for a study group?<br/>No 
+            <p>Looking for a study group?<br/>No&nbsp;&nbsp; 
             <FormControlLabel
-                  control={<Switch checked={studyGroup} onChange={updateStudyGroup} name="studyGroup" />}
+                  control={<Switch checked={studyGroup} onChange={updateStudyGroup} name="studyGroup" color="default"/>}
                   label="Yes" /></p>
+
             <Button type="submit" variant="contained">
                 Submit
             </Button>
