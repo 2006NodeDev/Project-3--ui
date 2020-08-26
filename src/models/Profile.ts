@@ -12,6 +12,6 @@ export class Profile {
     degree!: string;
     favLanguage!: string;
     relevantSkills!: string;
-    introvert!: Boolean;
-    studyGroup!: Boolean;
+    introvert!: boolean;
+    studyGroup!: boolean;
 }

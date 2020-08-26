@@ -36,61 +36,49 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const ProfileDisplayComponent: FunctionComponent<IProfileDisplayProps> = (props) => {
     let classes = useStyles()
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={4}>
-                <Typography className={classes.typography} variant='h4'>
-                    auth0Id: {props.profile.auth0Id}
+            <Typography className={classes.typography} variant='h4'>
+                {props.profile.firstName} {props.profile.lastName}, AKA {props.profile.nickname}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                firstName : {props.profile.firstName}
+                    Uses {props.profile.pronouns} pronouns
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    lastName : {props.profile.lastName}
+                    Id number: {props.profile.auth0Id}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    batchId : {props.profile.batchId}
+                    Email:  {props.profile.email}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    nickname : {props.profile.nickname}
-                </Typography>
-
-                <Typography className={classes.typography} variant='h4'>
-                    pronouns : {props.profile.pronouns}
+                    Batch ID: {props.profile.batchId}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    hobbies : {props.profile.hobbies}
+                    Hobby: {props.profile.hobbies}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    favFoods : {props.profile.favFoods}
+                    Favorite foods are: {props.profile.favFoods}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    specialTrait : {props.profile.specialTrait}
+                    Superpower is: {props.profile.specialTrait}
                 </Typography>
                 <Typography className={classes.typography} variant='h4'>
-                    degree : {props.profile.degree}
+                    Degree in: {props.profile.degree}
                 </Typography>
-
                 <Typography className={classes.typography} variant='h4'>
-                    favLanguage : {props.profile.favLanguage}
+                    Favorite coding Language: {props.profile.favLanguage}
                 </Typography>
-
                 <Typography className={classes.typography} variant='h4'>
-                    relaventSkills : {props.profile.relevantSkills}
+                   Is skilled in: {props.profile.relevantSkills}
                 </Typography>
-
-
                 <Typography className={classes.typography} variant='h4'>
-                    introvert : {props.profile.introvert}
+                    The statement 'I am an introvert' is: {props.profile.introvert.toString()}
                 </Typography>
-
-
-                
                 <Typography className={classes.typography} variant='h4'>
-                    studyGroup : {props.profile.studyGroup}
+                    The statement 'I am looking for a study group' is: {props.profile.studyGroup.toString()}
                 </Typography>
-
-
 
             </Paper>
         </div >
