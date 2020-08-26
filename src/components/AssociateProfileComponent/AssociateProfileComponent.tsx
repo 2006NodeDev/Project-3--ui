@@ -1,10 +1,18 @@
 import React, { FunctionComponent, useState, SyntheticEvent } from "react";
-import { FormControl, TextField, FormLabel, RadioGroup, FormControlLabel, Radio, Button } from '@material-ui/core';
+import { FormControl, TextField, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Switch } from '@material-ui/core';
 import { Profile } from "../../models/Profile";
 import { editCurrentProfile } from "../../remote/profile-serivce-api/updateProfile";
+import { getThemeProps } from "@material-ui/styles";
+import { useSelector } from "react-redux";
+import { IState } from "../../reducers";
+
+interface IProfileDisplayProps {
+    profile: Profile
+}
 
 
-export const AssociateProfileComponent:FunctionComponent<any> = () => {
+
+export const AssociateProfileComponent:FunctionComponent<any> = (props) => {
     const [auth0Id, noChange0] = useState('')
     const [firstName, noChange1] = useState('')
     const [lastName, noChange2] = useState('')
@@ -51,11 +59,11 @@ export const AssociateProfileComponent:FunctionComponent<any> = () => {
     }
     const updateIntrovert = (event: any) => {
         event.preventDefault()
-        changeIntrovert(event.currentTarget.value)
+        changeIntrovert(event.target.checked)
     }
     const updateStudyGroup = (event: any) => {
         event.preventDefault()
-        changeStudyGroup(event.currentTarget.value)
+        changeStudyGroup(event.target.checked)
     }
     const registerSubmit = async (e: SyntheticEvent) => {
         e.preventDefault()
@@ -81,34 +89,28 @@ export const AssociateProfileComponent:FunctionComponent<any> = () => {
       }
     return(
         <div>
-          <p>Update preferences for {nickname} ({firstName} {lastName}) by filling out and submitting the form below.</p>
+          {/*<p>Hello, {props.profile.nickname}! Let your batchmates get to know you by filling out your preferences below.</p>*/}
           <form onSubmit={registerSubmit}>
-            <TextField id="firstName" label="First Name" value={firstName}/><br/>
             <TextField id="pronouns" label="Preferred Pronouns:" onChange={updatePronouns} /><br/>
             <TextField id="hobby" label="Hobby:" onChange={updateHobbies} /><br/>
             <TextField id="favFoods" label="Favorite Foods:"  onChange={updateFavFoods}/><br/>
             <TextField id="specialTrait" label="Special Trait:"  onChange={updateSpecialTrait}/><br/>
             <TextField id="degree" label="Degree:"  onChange={updateDegree}/><br/>
             <TextField id="favLanguage" label="Favorite Language" onChange={updateFavLanguage}/><br/>
-            <TextField id="relevantSkills" label="Relevant Skills:"  onChange={updateRelevantSkills}/><br/><br/>
-            <FormControl component="fieldset">
-                <FormLabel component="legend">Personality Type:</FormLabel>
-                <RadioGroup aria-label="introvert" name="introvert" onChange={updateIntrovert}>
-                    <FormControlLabel value={true} control={<Radio />} label="Introvert" />
-                    <FormControlLabel value={false} control={<Radio />} label="Extrovert" />
-                </RadioGroup>
-            </FormControl><br/><br/>
-            <FormControl component="fieldset">
-                <FormLabel component="legend">Looking for a Study Group:</FormLabel>
-                <RadioGroup aria-label="studyGroup" name="studyGroup" onChange={updateStudyGroup}>
-                    <FormControlLabel value={true} control={<Radio />} label="True" />
-                    <FormControlLabel value={false} control={<Radio />} label="False" />
-                </RadioGroup>
-            </FormControl><br/>
+            <TextField id="relevantSkills" label="Relevant skills:"  onChange={updateRelevantSkills}/><br/><br/>
+          
+           <p>Personality Type:<br/>Extrovert 
+           <FormControlLabel
+                  control={<Switch checked={introvert} onChange={updateIntrovert} name="introvert" />}
+                  label="Introvert" /></p>
+            <p>Looking for a study group?<br/>No 
+            <FormControlLabel
+                  control={<Switch checked={studyGroup} onChange={updateStudyGroup} name="studyGroup" />}
+                  label="Yes" /></p>
             <Button type="submit" variant="contained">
                 Submit
             </Button>
-          </form>  
+          </form>
         </div>
     );
 } 

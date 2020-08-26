@@ -2,8 +2,6 @@ import React, { FunctionComponent } from 'react'
 import { makeStyles, Theme, createStyles, Paper, Typography } from '@material-ui/core';
 import { Profile } from '../../models/Profile';
 
-
-
 interface IProfileDisplayProps {
     profile: Profile
 }
