@@ -9,6 +9,7 @@ export const GetRoleComponent:FunctionComponent<any> = (props) => {
         return state.loginState.currentUser
     })
 
+
     let dispatch = useDispatch();
 
     const getRole = async () => {
@@ -16,7 +17,7 @@ export const GetRoleComponent:FunctionComponent<any> = (props) => {
             let id = currentUser.userId
             let thunk = await getRoleActionMapper(id)
             dispatch(thunk)
-            props.history.push('/associateInfo')
+            props.history.push('/home')
         } catch (error) {
             console.log(error);
         }

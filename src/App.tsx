@@ -18,6 +18,8 @@ import { AllProfileComponent } from './components/AllProfileComponent/AllProfile
 import { LogoutComponent } from './components/LogoutComponent/LogoutComponent';
 import { GetRoleComponent } from './components/GetRoleComponent/GetRoleComponent';
 import { ToastContainer } from 'react-toastify';
+import HomeComp from './components/HomeComp/HomeComp';
+import { ProfileComponent } from './components/ProfileComponent/ProfileComponent';
 
 function App() {
   const [currentUser, changeCurrentUser] = useState<null | User>(null)
@@ -27,20 +29,21 @@ function App() {
       <Provider store={store}>
         <Router>
 
-          <Redirect to='/home' />
+          {/* <Redirect to='/home' /> */}
 
           <NavBarComponent user={currentUser} />
           <Route path='/updatePassword' component={UpdatePasswordComponent} />
           <Route path='/updateRole' component={UpdateRoleComponent} />
-          <Route path='/login' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
+          <Route exact path='/' render={(props) => (<LoginComponent changeCurrentUser={changeCurrentUser} {...props} />)} />
           <Route path='/register' component={NewUserComponent} />
           <Route path='/allAssociate' component={AllAssociatesComponent} />
           <Route path='/currentBatches' component={CurrentBatchesComponent} />
           <Route path='/batchInfo' component={BatchbyTrainerEmailComponent} />
           <Route path='/allProfile' component={AllProfileComponent} />
+          <Route exact path='/profile/:userId' component={ProfileComponent} user={currentUser}/>
           <Route path='/home'>
-            <WelcomeComponent />
-            <HomePageComponent />
+            {/* <WelcomeComponent /> */}
+            <HomeComp />
           </Route>
           <Route path='/logout' render={(props) => (<LogoutComponent changeCurrentUser={changeCurrentUser} user={currentUser} {...props} />)} />
           <Route path='/getRole' component={GetRoleComponent} />
