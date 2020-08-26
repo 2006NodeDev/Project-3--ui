@@ -8,8 +8,7 @@ export const getRoleTypes = {
 
 export const getRoleActionMapper = (id:string) => async (dispatch:any) =>{
     try {
-        let response = 'Recieved Role Successfully';
-        await getRoleRemote(id);
+        let response = await getRoleRemote(id);
         dispatch({
             type:getRoleTypes.SUCCEFUL_UPDATE,
             payload:{ 

@@ -6,5 +6,5 @@ if(process.env['NODE_ENV'] === 'production'){
     acBaseUrl='http://35.245.104.196'
 }else {
     //adjusted for nginx/multiple servers
-    acBaseUrl='http://localhost:80'
+    acBaseUrl='http://localhost:2006'
 }
